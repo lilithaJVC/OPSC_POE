@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">QuizWiz</string>
+    <string name="client_id">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</string>
+    <string name="google_client_id">359932577588-fatrmtodaldk8a8n5kdbfijj2f95lbhj.apps.googleusercontent.com</string>
+    <string name="email">Email</string>
+    <string name="Name">Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account_sign_in">Dont have an account? Sign up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="signed">Sign Up</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
+</resources>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/BabyBlue"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="?attr/actionBarTheme"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:background="#FF1493"
+            android:minHeight="?attr/actionBarSize" />
+
+        <Button
+            android:id="@+id/btnProfileSettings"
+            android:layout_width="385dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="250dp"
+            android:layout_marginLeft="15dp"
+            android:backgroundTint="@color/Pink"
+            android:text="PROFILE SETTINGS"
+            android:textSize="20dp"
+            app:cornerRadius="0dp"/>
+
+        <Button
+            android:id="@+id/btnGameSettings"
+            android:layout_width="385dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="320dp"
+            android:layout_marginLeft="15dp"
+            android:backgroundTint="@color/Pink"
+            android:text="GAME SETTINGS"
+            android:textSize="20dp"
+            app:cornerRadius="0dp"/>
+
+        <Button
+            android:id="@+id/btnHelpSupport"
+            android:layout_width="385dp"
+            android:layout_height="59dp"
+            android:layout_marginLeft="15dp"
+            android:backgroundTint="@color/Pink"
+            android:textSize="20dp"
+            android:layout_marginTop="390dp"
+            android:text="HELP AND SUPPORT"
+            app:cornerRadius="0dp"/>
+
+        <Button
+            android:id="@+id/btnAbout"
+            android:layout_width="385dp"
+            android:layout_height="59dp"
+            android:layout_marginLeft="15dp"
+            android:backgroundTint="@color/Pink"
+            android:text="ABOUT"
+            android:layout_marginTop="460dp"
+            android:textSize="20dp"
+            app:cornerRadius="0dp"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="186dp"
+            android:layout_height="205dp"
+            android:layout_marginLeft="115sp"
+            android:layout_marginTop="25sp"
+            app:srcCompat="@mipmap/ic_launcher_foreground" />
+
+        <Button
+            android:id="@+id/btnBACK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/BabyBlue"
+            android:text="BACK"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="679dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="Profile"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/dashboard"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="Dashboard"
+        android:orderInCategory="200"
+        app:showAsAction="never" />
+
+        <item
+            android:id="@+id/settings"
+            android:icon="@android:drawable/ic_menu_send"
+            android:title="Settings"
+            android:orderInCategory="400"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/helpsupport"
+            android:icon="@android:drawable/ic_menu_send"
+            android:title="Help"
+            android:orderInCategory="500"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/about"
+            android:icon="@android:drawable/ic_menu_send"
+            android:title="About"
+            android:orderInCategory="600"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@android:drawable/ic_menu_send"
+            android:title="Logout"
+            android:orderInCategory="700"
+            app:showAsAction="never" />
+
+</menu>

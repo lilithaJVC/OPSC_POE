@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/BabyBlue"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="186dp"
+            android:layout_height="205dp"
+            android:layout_marginLeft="115sp"
+            android:layout_marginTop="25sp"
+            app:srcCompat="@mipmap/ic_launcher_foreground" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FF1493"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="386dp"
+            android:layout_height="460dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="220dp"
+            android:text=""
+            app:backgroundTint="@color/lightBabyBlue"
+            app:cornerRadius="0dp" />
+
+        <EditText
+            android:id="@+id/editTextText"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="220dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="About QuizWiz"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="367dp"
+            android:layout_height="121dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="275dp"
+            android:text=" QuizWiz is a Trivia App that challenges your knowledge
+across various topics, offering a away to learn and compete with friends"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:backgroundTint="#7AC9DC"
+            app:cornerRadius="0dp" />
+
+        <EditText
+            android:id="@+id/editTextText2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="400dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Privacy Policy"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="366dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="440dp"
+            android:text=" We collect personal information such as your name,
+email address, and username when you create an account. This data is used to personalize
+your experience and connect you with other players."
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:backgroundTint="#5FBBCF"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/BabyBlue"
+            android:text="LOGOUT"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="679dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/btnBackSettings"
+            android:layout_width="269dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="625dp"
+            android:backgroundTint="#FF1493"
+            android:text="Back To Settings Menu"
+            android:textSize="20dp"
+            app:cornerRadius="0dp" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
