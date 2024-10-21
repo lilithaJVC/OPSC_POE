@@ -12,9 +12,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.room.Room
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MultiChoice : AppCompatActivity() {
 
@@ -181,13 +186,45 @@ class MultiChoice : AppCompatActivity() {
      * Fetches multiple-choice questions based on the selected category.
      */
     private fun fetchQuestions(category: String) {
+        // First try to load questions from the Room database
+        CoroutineScope(Dispatchers.IO).launch {
+            val db = Room.databaseBuilder(
+                applicationContext,
+                QuizDatabase::class.java, "multiple_choice_questions"
+            ).build()
+            val questionDao = db.questionDao()
+
+            // Check if questions are available in the local Room DB
+            val localQuestions = questionDao.getQuestionsByCategory(category)
+
+            if (localQuestions.isNotEmpty()) {
+                // If we have questions in the local DB, display them
+                withContext(Dispatchers.Main) {
+                    questions = localQuestions
+                    displayCurrentQuestion()
+                }
+            } else {
+                // If no questions found, or if the user wants to refresh, fetch from the API
+                fetchQuestionsFromApi(category, questionDao)
+            }
+        }
+    }
+
+    // Function to fetch from API and update Room database
+    private fun fetchQuestionsFromApi(category: String, questionDao: QuestionDao) {
         val apiService = RetrofitClient.instance.create(QuizApiService::class.java)
+
         apiService.getMultipleChoiceQuestions(category).enqueue(object : Callback<List<MultipleChoiceQuestion>> {
             override fun onResponse(call: Call<List<MultipleChoiceQuestion>>, response: Response<List<MultipleChoiceQuestion>>) {
                 if (response.isSuccessful) {
                     questions = response.body() ?: emptyList()
                     if (questions.isNotEmpty()) {
                         displayCurrentQuestion()
+
+                        // Insert questions into Room DB using coroutine
+                        CoroutineScope(Dispatchers.IO).launch {
+                            questionDao.insertAll(questions) // Update the database
+                        }
                     } else {
                         QuestionTXT.text = "No questions available."
                     }
