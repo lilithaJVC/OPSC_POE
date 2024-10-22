@@ -1,6 +1,10 @@
 package com.example.quizwiz3
 
 import android.R.attr.name
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
@@ -35,6 +39,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         FirebaseApp.initializeApp(this)
+
+        // Request notification permission for Android 13 and above
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 1001)
+        }
+        // Create the notification channel for Android 8 (Oreo) and above
+        createNotificationChannel()
+
 
 //___________code attribution___________
 //The following code was taken from Coding with T in youtube
@@ -175,5 +187,21 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    //___________end___________
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "QuizWiz Notifications"
+            val descriptionText = "Channel for QuizWiz app notifications"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel("QUIZWIZ_CHANNEL_ID", name, importance).apply {
+                description = descriptionText
+            }
+
+            val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
 }
+
+//___________end___________
+
