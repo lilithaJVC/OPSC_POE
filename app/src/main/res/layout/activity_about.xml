@@ -46,7 +46,7 @@
             android:layout_marginTop="220dp"
             android:ems="10"
             android:inputType="text"
-            android:text="About QuizWiz"
+            android:text="@string/about"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -55,8 +55,7 @@
             android:layout_height="121dp"
             android:layout_marginLeft="21dp"
             android:layout_marginTop="275dp"
-            android:text=" QuizWiz is a Trivia App that challenges your knowledge
-across various topics, offering a away to learn and compete with friends"
+            android:text="@string/about_description"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -71,7 +70,7 @@ across various topics, offering a away to learn and compete with friends"
             android:layout_marginTop="400dp"
             android:ems="10"
             android:inputType="text"
-            android:text="Privacy Policy"
+            android:text="@string/privacy"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -80,9 +79,7 @@ across various topics, offering a away to learn and compete with friends"
             android:layout_height="wrap_content"
             android:layout_marginLeft="21dp"
             android:layout_marginTop="440dp"
-            android:text=" We collect personal information such as your name,
-email address, and username when you create an account. This data is used to personalize
-your experience and connect you with other players."
+            android:text="@string/privacy_policy"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="bold"
@@ -108,7 +105,7 @@ your experience and connect you with other players."
             android:layout_marginLeft="70dp"
             android:layout_marginTop="625dp"
             android:backgroundTint="#FF1493"
-            android:text="Back To Settings Menu"
+            android:text="@string/back"
             android:textSize="20dp"
             app:cornerRadius="0dp" />
     </RelativeLayout>
