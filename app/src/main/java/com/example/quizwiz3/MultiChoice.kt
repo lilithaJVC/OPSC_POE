@@ -3,6 +3,7 @@ package com.example.quizwiz3
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -76,7 +77,7 @@ class MultiChoice : AppCompatActivity() {
         updateCurrentPlayer()
 
         // Fetch questions based on category
-        fetchQuestions(category)
+       // fetchQuestions(category)
 
         // Show the instructions dialog when the activity starts
         showInstructionsDialog()
@@ -200,12 +201,13 @@ class MultiChoice : AppCompatActivity() {
             if (localQuestions.isNotEmpty()) {
                 // If we have questions in the local DB, display them
                 withContext(Dispatchers.Main) {
-                    questions = localQuestions
+                    //questions = localQuestions
                     displayCurrentQuestion()
+                    Toast.makeText(this@MultiChoice, "testing", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 // If no questions found, or if the user wants to refresh, fetch from the API
-                fetchQuestionsFromApi(category, questionDao)
+               // fetchQuestionsFromApi(category, questionDao)
             }
         }
     }
@@ -224,7 +226,9 @@ class MultiChoice : AppCompatActivity() {
                         // Insert questions into Room DB using coroutine
                         CoroutineScope(Dispatchers.IO).launch {
                             questionDao.insertAll(questions) // Update the database
+                            Log.d("MultiChoice", "Questions inserted into DB successfully")
                         }
+                        //readQuestionsFromDatabase(category)
                     } else {
                         QuestionTXT.text = "No questions available."
                     }
@@ -239,6 +243,30 @@ class MultiChoice : AppCompatActivity() {
                 QuestionTXT.text = "Error: ${t.message}"
             }
         })
+    }
+    private fun readQuestionsFromDatabase(category: String) {
+//        Toast.makeText(this@MultiChoice, "Opening method", Toast.LENGTH_SHORT).show()
+//        CoroutineScope(Dispatchers.IO).launch {
+//            val db = Room.databaseBuilder(
+//                applicationContext,
+//                QuizDatabase::class.java, "multiple_choice_questions"
+//            ).build()
+//            val questionDao = db.questionDao()
+//            Toast.makeText(this@MultiChoice, "1", Toast.LENGTH_SHORT).show()
+//            // Retrieve questions from the database
+//            val savedQuestions = questionDao.getQuestionsByCategory(category) // or use a specific category method
+//            Log.d("MultiChoice", "Saved Questions: $savedQuestions")
+//            Toast.makeText(this@MultiChoice, "2", Toast.LENGTH_SHORT).show()
+//            // You can also show these questions in the UI (on the main thread)
+//            withContext(Dispatchers.Main) {
+//                if (savedQuestions.isNotEmpty()) {
+//                    // Display saved questions in a Toast or update UI
+//                    Toast.makeText(this@MultiChoice, "Loaded ${savedQuestions.size} questions from DB", Toast.LENGTH_SHORT).show()
+//                } else {
+//                    Toast.makeText(this@MultiChoice, "No questions found in DB", Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//        }
     }
 
     /**

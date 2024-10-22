@@ -3,6 +3,7 @@ package com.example.quizwiz3
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -15,9 +16,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.room.Room
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import java.util.UUID
+
 
 class SingleMultigame : AppCompatActivity() {
 
@@ -67,6 +77,9 @@ class SingleMultigame : AppCompatActivity() {
 
         val category = intent.getStringExtra("category") ?: "Default"
         fetchQuestions(category)
+
+
+       // fetchQuestionsFromApi(category)
 
         // Show the alert dialog when the activity starts
         showInstructionsDialog()
@@ -169,15 +182,70 @@ class SingleMultigame : AppCompatActivity() {
     //link:https://www.youtube.com/results?search_query=linking+a+button+to+aclass+on+adnroid+studio+
 
     private fun fetchQuestions(category: String) {
+        // First try to load questions from the Room database
+        CoroutineScope(Dispatchers.IO).launch {
+            val db = Room.databaseBuilder(
+                applicationContext,
+                QuizDatabase::class.java, QuizDatabase.name
+            ).build()
+            val questionDao = db.questionDao()
+
+            // Check if questions are available in the local Room DB
+            val localQuestions = questionDao.getQuestionsByCategory(category)
+
+            if (localQuestions.isNotEmpty()) {
+                // If we have questions in the local DB, display them
+                withContext(Dispatchers.Main) {
+                    questions = localQuestions
+                    if(questions.isEmpty())
+                    {
+                        Log.e("DatabaseEmpty", "Successfully empty")
+                    }
+                    else {
+                        Log.e("DatabaseFull", "Successfully full")
+                        displayCurrentQuestion()
+                    }
+
+
+                    Log.e("DatabaseSuccess", "Successfully fetch")
+                }
+            } else {
+                // If no questions found, or if the user wants to refresh, fetch from the API
+                // fetchQuestionsFromApi(category, questionDao)
+                Log.e("DatabaseError", "Error fetch")
+            }
+        }
+    }
+
+    // Function to fetch from API and update Room database
+    private fun fetchQuestionsFromApi(category: String) {
         val apiService = RetrofitClient.instance.create(QuizApiService::class.java)
         apiService.getMultipleChoiceQuestions(category).enqueue(object :
             Callback<List<MultipleChoiceQuestion>> {
             override fun onResponse(call: Call<List<MultipleChoiceQuestion>>, response: Response<List<MultipleChoiceQuestion>>) {
                 if (response.isSuccessful) {
+                    val questionsDB = response.body()?.map {
+                        MultipleChoiceQuestion(
+                            id = it.id ?: generateUniqueId(), // Ensure ID is non-null
+                            questionText = it.questionText,
+                            options = it.options,
+                            answer = it.answer,
+                            category = category
+                        )
+                    } ?: emptyList()
                     questions = response.body() ?: emptyList()
                     stringQuestions = questions.map { it.questionText }
                     QuestionCache.cachedQuestionsMC = questions
                     displayCurrentQuestion()
+                    CoroutineScope(Dispatchers.IO).launch {
+                        val quizDb = Room.databaseBuilder(
+                                applicationContext,
+                                QuizDatabase::class.java, QuizDatabase.name
+                            ).build()
+                            quizDb.questionDao().insertAll(questionsDB)
+
+                    }
+
                 } else {
                     // Handle the error
                     QuestionTXT.text = "Failed to load questions"
@@ -189,6 +257,10 @@ class SingleMultigame : AppCompatActivity() {
                 QuestionTXT.text = "Error: ${t.message}"
             }
         })
+    }
+
+    fun generateUniqueId(): String {
+        return UUID.randomUUID().toString()
     }
     //code attribution
     //this code was taken from  stack overflow

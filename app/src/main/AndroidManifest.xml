@@ -55,6 +55,9 @@
             android:name=".MainActivity"
             android:exported="true" />
         <activity
+            android:name=".MainApplication"
+            android:exported="true" />
+        <activity
             android:name=".ChatGPTResult"
             android:exported="true" />
         <activity
