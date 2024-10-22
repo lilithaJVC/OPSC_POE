@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login">LoginZulu</string>
+    <string name="app_name">QuizWiz</string>
+    <string name="client_id">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</string>
+    <string name="google_client_id">359932577588-fatrmtodaldk8a8n5kdbfijj2f95lbhj.apps.googleusercontent.com</string>
+    <string name="email">I-imeyili</string>
+    <string name="Name">Igama</string>
+    <string name="password">Iphasiwedi</string>
+    <string name="don_t_have_an_account_sign_in">Awunayo i-akhawunti? Bhalisa</string>
+    <string name="confirm_password">Qinisekisa iphasiwedi</string>
+    <string name="signed">Bhalisa</string>
+    <string name="already_have_an_account_login">Unayo i-akhawunti? Ngena</string>
+    <string name="back">Emuva</string>
+
+    <string name="about">Mayelana ne-QuizWiz</string>
+    <string name="about_description">I-QuizWiz uhlelo lokusebenza lwe-Trivia oluhlola ulwazi lwakho ezihlokweni ezahlukene, inikeza indlela yokufunda nokuncintisana nabangani</string>
+
+    <string name="privacy">Inqubomgomo yobumfihlo</string>
+    <string name="privacy_policy">Siqoqa ulwazi lomuntu siqu njengamagama akho, ikheli le-imeyili, kanye negama lomsebenzisi lapho udala i-akhawunti. Lolu lwazi lusetshenziselwa ukwenza isipiliyoni sakho sibe ngokwakho futhi likuxhumanise nabanye abadlali.</string>
+
+    <string name="Animals">Izilwane</string>
+    <string name="Categories">Izigaba</string>
+    <string name="Disney">Disney</string>
+    <string name="History">Umlando</string>
+    <string name="Food">Ukudla</string>
+    <string name="Music">Umculo</string>
+    <string name="TV_Shows">Izinhlelo ze-TV</string>
+
+
+</resources>

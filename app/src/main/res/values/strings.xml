@@ -10,4 +10,51 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="signed">Sign Up</string>
     <string name="already_have_an_account_login">Already have an account? Login</string>
+
+    <string name="back">Back</string>
+    <string name="Save">Save</string>
+
+    <string name="about">About QuizWiz</string>
+    <string name="about_description">QuizWiz is a Trivia App that challenges your knowledge
+across various topics, offering a away to learn and compete with friends</string>
+    <string name="privacy">Privacy Policy</string>
+    <string name="privacy_policy">We collect personal information such as your name,
+email address, and username when you create an account. This data is used to personalize
+your experience and connect you with other players.</string>
+    <string name="Animals">Animals</string>
+    <string name="Categories">Categories</string>
+    <string name="Disney">Disney</string>
+    <string name="History">History</string>
+    <string name="Food">Food</string>
+    <string name="Music">Music</string>
+    <string name="TV_Shows">TV Shows</string>
+
+    <string name="notifications">Notifications Alerts</string>
+    <string name="sound">Sound and Music</string>
+    <string name="light">Light or Dark Mode</string>
+    <string name="LOGOUT">LOGOUT</string>
+    <string name="choose">CHOOSE AN OPTION BELOW:</string>
+    <string name="faq">Frequently Asked Questions(FAQ)</string>
+    <string name="ask">Ask A Question</string>
+    <string name="contact">Contact Support:</string>
+    <string name="contact_info">Email Address: quizwiz@gmail.com        Contact Number: 081 264 9953</string>
+    <string name="enter">Enter your question</string>
+    <string name="Submit">Submit</string>
+    <string name="Biometrics">Login with Biometrics</string>
+    <string name="Sign_up">Sign up</string>
+    <string name="Next">Next</string>
+    <string name="DashBoard">Dashboard</string>
+    <string name="Sign_up">Sign up</string>
+    <string name="Sign_up">Sign up</string>
+    <string name="Sign_up">Sign up</string>
+    <string name="Sign_up">Sign up</string>
+    <string name="Sign_up">Sign up</string>
+    <string name="Sign_up">Sign up</string>
+    <string name="Sign_up">Sign up</string>
+    <string name="Sign_up">Sign up</string>
+
+
+
+
+
 </resources>

@@ -48,7 +48,7 @@
         android:id="@+id/textView2"
         android:layout_width="321dp"
         android:layout_height="62dp"
-        android:text="CHOOSE AN OPTION BELOW:"
+        android:text="@string/choose"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

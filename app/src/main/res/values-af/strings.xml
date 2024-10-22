@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login">LoginAfri</string>
+    <string name="app_name">QuizWiz</string>
+    <string name="client_id">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</string>
+    <string name="google_client_id">359932577588-fatrmtodaldk8a8n5kdbfijj2f95lbhj.apps.googleusercontent.com</string>
+    <string name="email">E-pos</string>
+    <string name="Name">Naam</string>
+    <string name="password">Wagwoord</string>
+    <string name="don_t_have_an_account_sign_in">Het jy nie n rekening nie? Registreer</string>
+    <string name="confirm_password">Bevestig wagwoord</string>
+    <string name="signed">Registreer</string>
+    <string name="already_have_an_account_login">Het jy al n rekening? Teken in</string>
+    <string name="back">Terug</string>
+
+    <string name="about">Oor QuizWiz</string>
+    <string name="about_description">QuizWiz is n Trivia App wat jou kennis toets oor verskeie onderwerpe, en bied n manier om te leer en met vriende mee te ding</string>
+
+    <string name="privacy">Privaatheidsbeleid</string>
+    <string name="privacy_policy">Ons versamel persoonlike inligting soos jou naam, e-posadres, en gebruikersnaam wanneer jy n rekening skep. Hierdie data word gebruik om jou ervaring te personaliseer en jou met ander spelers te verbind.</string>
+
+    <string name="Animals">Diere</string>
+    <string name="Categories">Kategorieë</string>
+    <string name="Disney">Disney</string>
+    <string name="History">Geskiedenis</string>
+    <string name="Food">Kos</string>
+    <string name="Music">Musiek</string>
+    <string name="TV_Shows">TV Programme</string>
+
+
+</resources>
