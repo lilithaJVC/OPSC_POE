@@ -211,7 +211,7 @@ class SingleMultigame : AppCompatActivity() {
                 }
             } else {
                 // If no questions found, or if the user wants to refresh, fetch from the API
-                // fetchQuestionsFromApi(category, questionDao)
+                 fetchQuestionsFromApi(category)
                 Log.e("DatabaseError", "Error fetch")
             }
         }
