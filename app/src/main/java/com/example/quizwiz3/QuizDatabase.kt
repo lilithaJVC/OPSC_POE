@@ -14,5 +14,9 @@ import androidx.room.TypeConverters
 abstract class QuizDatabase : RoomDatabase() {
     abstract fun questionDao(): QuestionDao
 
+    companion object{
+        const val name = "quiz_db"
+    }
+
 }
 
