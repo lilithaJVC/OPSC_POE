@@ -21,6 +21,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.UUID
 
 class MultiChoice : AppCompatActivity() {
 
@@ -39,6 +40,7 @@ class MultiChoice : AppCompatActivity() {
 
     // Original Variables
     private var questions: List<MultipleChoiceQuestion> = emptyList()
+    private var stringQuestions: List<String> = emptyList()
     private var currentQuestionIndex = 0
     private var selectedAnswer: String? = null
 
@@ -77,7 +79,7 @@ class MultiChoice : AppCompatActivity() {
         updateCurrentPlayer()
 
         // Fetch questions based on category
-       // fetchQuestions(category)
+        fetchQuestions(category)
 
         // Show the instructions dialog when the activity starts
         showInstructionsDialog()
@@ -191,7 +193,7 @@ class MultiChoice : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             val db = Room.databaseBuilder(
                 applicationContext,
-                QuizDatabase::class.java, "multiple_choice_questions"
+                QuizDatabase::class.java, QuizDatabase.name
             ).build()
             val questionDao = db.questionDao()
 
@@ -201,37 +203,56 @@ class MultiChoice : AppCompatActivity() {
             if (localQuestions.isNotEmpty()) {
                 // If we have questions in the local DB, display them
                 withContext(Dispatchers.Main) {
-                    //questions = localQuestions
-                    displayCurrentQuestion()
-                    Toast.makeText(this@MultiChoice, "testing", Toast.LENGTH_SHORT).show()
+                    questions = localQuestions
+                    if(questions.isEmpty())
+                    {
+                        Log.e("DatabaseEmpty", "Successfully empty")
+                    }
+                    else {
+                        Log.e("DatabaseFull", "Successfully full")
+                        displayCurrentQuestion()
+                    }
+
+
+                    Log.e("DatabaseSuccess", "Successfully fetch")
                 }
             } else {
                 // If no questions found, or if the user wants to refresh, fetch from the API
-               // fetchQuestionsFromApi(category, questionDao)
+                fetchQuestionsFromApi(category)
+                Log.e("DatabaseError", "Error fetch")
             }
         }
     }
 
     // Function to fetch from API and update Room database
-    private fun fetchQuestionsFromApi(category: String, questionDao: QuestionDao) {
+    private fun fetchQuestionsFromApi(category: String) {
         val apiService = RetrofitClient.instance.create(QuizApiService::class.java)
-
-        apiService.getMultipleChoiceQuestions(category).enqueue(object : Callback<List<MultipleChoiceQuestion>> {
+        apiService.getMultipleChoiceQuestions(category).enqueue(object :
+            Callback<List<MultipleChoiceQuestion>> {
             override fun onResponse(call: Call<List<MultipleChoiceQuestion>>, response: Response<List<MultipleChoiceQuestion>>) {
                 if (response.isSuccessful) {
+                    val questionsDB = response.body()?.map {
+                        MultipleChoiceQuestion(
+                            id = it.id ?: generateUniqueId(), // Ensure ID is non-null
+                            questionText = it.questionText,
+                            options = it.options,
+                            answer = it.answer,
+                            category = category
+                        )
+                    } ?: emptyList()
                     questions = response.body() ?: emptyList()
-                    if (questions.isNotEmpty()) {
-                        displayCurrentQuestion()
+                    stringQuestions = questions.map { it.questionText }
+                    QuestionCache.cachedQuestionsMC = questions
+                    displayCurrentQuestion()
+                    CoroutineScope(Dispatchers.IO).launch {
+                        val quizDb = Room.databaseBuilder(
+                            applicationContext,
+                            QuizDatabase::class.java, QuizDatabase.name
+                        ).build()
+                        quizDb.questionDao().insertAll(questionsDB)
 
-                        // Insert questions into Room DB using coroutine
-                        CoroutineScope(Dispatchers.IO).launch {
-                            questionDao.insertAll(questions) // Update the database
-                            Log.d("MultiChoice", "Questions inserted into DB successfully")
-                        }
-                        //readQuestionsFromDatabase(category)
-                    } else {
-                        QuestionTXT.text = "No questions available."
                     }
+
                 } else {
                     // Handle the error
                     QuestionTXT.text = "Failed to load questions"
@@ -244,29 +265,9 @@ class MultiChoice : AppCompatActivity() {
             }
         })
     }
-    private fun readQuestionsFromDatabase(category: String) {
-//        Toast.makeText(this@MultiChoice, "Opening method", Toast.LENGTH_SHORT).show()
-//        CoroutineScope(Dispatchers.IO).launch {
-//            val db = Room.databaseBuilder(
-//                applicationContext,
-//                QuizDatabase::class.java, "multiple_choice_questions"
-//            ).build()
-//            val questionDao = db.questionDao()
-//            Toast.makeText(this@MultiChoice, "1", Toast.LENGTH_SHORT).show()
-//            // Retrieve questions from the database
-//            val savedQuestions = questionDao.getQuestionsByCategory(category) // or use a specific category method
-//            Log.d("MultiChoice", "Saved Questions: $savedQuestions")
-//            Toast.makeText(this@MultiChoice, "2", Toast.LENGTH_SHORT).show()
-//            // You can also show these questions in the UI (on the main thread)
-//            withContext(Dispatchers.Main) {
-//                if (savedQuestions.isNotEmpty()) {
-//                    // Display saved questions in a Toast or update UI
-//                    Toast.makeText(this@MultiChoice, "Loaded ${savedQuestions.size} questions from DB", Toast.LENGTH_SHORT).show()
-//                } else {
-//                    Toast.makeText(this@MultiChoice, "No questions found in DB", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//        }
+
+    fun generateUniqueId(): String {
+        return UUID.randomUUID().toString()
     }
 
     /**

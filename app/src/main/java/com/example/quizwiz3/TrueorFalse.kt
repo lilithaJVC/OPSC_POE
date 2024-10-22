@@ -17,6 +17,12 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
+import androidx.room.Room
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.util.UUID
 
 class TrueorFalse : AppCompatActivity() {
 
@@ -105,6 +111,41 @@ class TrueorFalse : AppCompatActivity() {
     }
 
     private fun fetchQuestions(category: String) {
+        // First try to load questions from the Room database
+        CoroutineScope(Dispatchers.IO).launch {
+            val db = Room.databaseBuilder(
+                applicationContext,
+                TFDatabase::class.java, TFDatabase.name
+            ).build()
+            val trueOrFalseDao = db.trueOrFalseDao()
+
+            // Check if questions are available in the local Room DB
+            val localQuestions = trueOrFalseDao.getQuestionsByCategory(category)
+
+            if (localQuestions.isNotEmpty()) {
+                // If we have questions in the local DB, display them
+                withContext(Dispatchers.Main) {
+                    questions = localQuestions
+                    if(questions.isEmpty())
+                    {
+                        Log.e("DatabaseEmpty", "Successfully empty")
+                    }
+                    else {
+                        Log.e("DatabaseFull", "Successfully full")
+                        displayQuestion()
+                    }
+
+                    Log.e("DatabaseSuccess", "Successfully fetch")
+                }
+            } else {
+                // If no questions found, or if the user wants to refresh, fetch from the API
+                fetchQuestionsFromApi(category)
+                Log.e("DatabaseError", "Error fetch")
+            }
+        }
+    }
+
+    private fun fetchQuestionsFromApi(category: String) {
         val apiService = RetrofitClient.instance.create(QuizApiService::class.java)
         val call = apiService.getQuestions(category)
 
@@ -115,6 +156,22 @@ class TrueorFalse : AppCompatActivity() {
                     if (questions.isNotEmpty()) {
                         QuestionCache.cachedQuestionsTF = questions
                         displayQuestion()
+                        val questionsDB = response.body()?.map {
+                            TrueOrFalseQuestion(
+                                id = it.id ?: generateUniqueId(), // Ensure ID is non-null
+                                questionText = it.questionText,
+                                correctAnswer = it.correctAnswer,
+                                incorrectAnswer = it.incorrectAnswer,
+                                category = category
+                            )
+                        } ?: emptyList()
+                        CoroutineScope(Dispatchers.IO).launch {
+                            val quizDb = Room.databaseBuilder(
+                                applicationContext,
+                                TFDatabase::class.java, TFDatabase.name
+                            ).build()
+                            quizDb.trueOrFalseDao().insertAll(questionsDB)
+                        }
                         Toast.makeText(this@TrueorFalse, "Questions fetched successfully", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(this@TrueorFalse, "No questions found", Toast.LENGTH_SHORT).show()
@@ -130,6 +187,10 @@ class TrueorFalse : AppCompatActivity() {
                 Toast.makeText(this@TrueorFalse, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    fun generateUniqueId(): String {
+        return UUID.randomUUID().toString()
     }
 
     private fun displayQuestion() {
