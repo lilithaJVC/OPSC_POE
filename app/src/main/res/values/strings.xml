@@ -44,14 +44,20 @@ your experience and connect you with other players.</string>
     <string name="Sign_up">Sign up</string>
     <string name="Next">Next</string>
     <string name="DashBoard">Dashboard</string>
-    <string name="Sign_up">Sign up</string>
-    <string name="Sign_up">Sign up</string>
-    <string name="Sign_up">Sign up</string>
-    <string name="Sign_up">Sign up</string>
-    <string name="Sign_up">Sign up</string>
-    <string name="Sign_up">Sign up</string>
-    <string name="Sign_up">Sign up</string>
-    <string name="Sign_up">Sign up</string>
+    <string name="goodluck">Please fill in the players details below and start the game!! Good luck</string>
+    <string name="Player_1">Player 1</string>
+    <string name="Player_2">Player 2</string>
+    <string name="save_players">Save Players and Start Game</string>
+    <string name="RESULTS">RESULTS</string>
+    <string name="result_both">Results for Both Players:</string>
+    <string name="PROFILE_SETTINGS">PROFILE SETTINGS</string>
+    <string name="GAME_SETTINGS">GAME SETTINGS</string>
+    <string name="HELP_AND_SUPPORT">HELP AND SUPPORT</string>
+    <string name="about2">ABOUT</string>
+    <string name="TRUE">TRUE</string>
+    <string name="FALSE">FALSE</string>
+
+
 
 
 

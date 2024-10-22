@@ -15,7 +15,7 @@
 
     <string name="about">Oor QuizWiz</string>
     <string name="about_description">QuizWiz is n Trivia App wat jou kennis toets oor verskeie onderwerpe, en bied n manier om te leer en met vriende mee te ding</string>
-
+    <string name="Save">Stoor</string>
     <string name="privacy">Privaatheidsbeleid</string>
     <string name="privacy_policy">Ons versamel persoonlike inligting soos jou naam, e-posadres, en gebruikersnaam wanneer jy n rekening skep. Hierdie data word gebruik om jou ervaring te personaliseer en jou met ander spelers te verbind.</string>
 
@@ -26,6 +26,35 @@
     <string name="Food">Kos</string>
     <string name="Music">Musiek</string>
     <string name="TV_Shows">TV Programme</string>
+
+    <string name="notifications">Kennisgewingswaarskuwings</string>
+    <string name="sound">Klank en Musiek</string>
+    <string name="light">Ligte of Donker Modus</string>
+    <string name="LOGOUT">UITTEKEN</string>
+    <string name="choose">KIES N OPSIE HIERONDER:</string>
+    <string name="faq">Gereelde Vrae (FAQ)</string>
+    <string name="ask">Vra n Vraag</string>
+    <string name="contact">Kontak Ondersteuning:</string>
+    <string name="contact_info">E-posadres: quizwiz@gmail.com Kontaknommer: 081 264 9953</string>
+    <string name="enter">Voer jou vraag in</string>
+    <string name="Submit">Indien</string>
+    <string name="Biometrics">Meld aan met Biometrie</string>
+    <string name="Sign_up">Registreer</string>
+    <string name="Next">Volgende</string>
+    <string name="DashBoard">Dashboard</string>
+    <string name="goodluck">Vul asseblief die spelers se besonderhede hieronder in en begin die spel!! Sterkte</string>
+    <string name="Player_1">Speler 1</string>
+    <string name="Player_2">Speler 2</string>
+    <string name="save_players">Stoor Spelers en Begin Speletjie</string>
+    <string name="RESULTS">RESULTATE</string>
+    <string name="result_both">Resultate vir Beide Spelers:</string>
+    <string name="PROFILE_SETTINGS">PROFIELINSTELLINGS</string>
+    <string name="GAME_SETTINGS">SPELINSTELLINGS</string>
+    <string name="HELP_AND_SUPPORT">HULP EN ONDERSTEUNING</string>
+    <string name="about2">OOR</string>
+    <string name="TRUE">WAAR</string>
+    <string name="FALSE">ONWAAR</string>
+
 
 
 </resources>

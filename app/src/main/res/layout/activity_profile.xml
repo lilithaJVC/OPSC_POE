@@ -65,7 +65,7 @@
         android:layout_width="115dp"
         android:layout_height="43dp"
         android:backgroundTint="#FF1493"
-        android:text="Back"
+        android:text="@string/back"
         android:textColor="#000000"
 
         app:layout_constraintBottom_toBottomOf="parent"

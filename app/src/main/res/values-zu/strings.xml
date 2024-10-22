@@ -26,6 +26,36 @@
     <string name="Food">Ukudla</string>
     <string name="Music">Umculo</string>
     <string name="TV_Shows">Izinhlelo ze-TV</string>
+    <string name="Save">Londoloza</string>
+
+    <string name="notifications">Izaziso Nezixwayiso</string>
+    <string name="sound">Umsindo Nomculo</string>
+    <string name="light">Imodi Yokukhanya Noma Emnyama</string>
+    <string name="LOGOUT">PHUMA</string>
+    <string name="choose">KUKHETHA INKETHO NGAPHANSI:</string>
+    <string name="faq">Imibuzo Ebuzwa Ngokuvamile (FAQ)</string>
+    <string name="ask">Buza Umbuzo</string>
+    <string name="contact">Xhumana Nezisekelo:</string>
+    <string name="contact_info">Ikheli Le-imeyili: quizwiz@gmail.com Inombolo Yocingo: 081 264 9953</string>
+    <string name="enter">Faka umbuzo wakho</string>
+    <string name="Submit">Thumela</string>
+    <string name="Biometrics">Ngena Nge-Biometric</string>
+    <string name="Sign_up">Bhalisa</string>
+    <string name="Next">Okulandelayo</string>
+    <string name="DashBoard">I-Dashboard</string>
+    <string name="goodluck">Sicela ugcwalise imininingwane yabadlali ngezansi bese uqala umdlalo!! Ngikufisela inhlanhla</string>
+    <string name="Player_1">Umdlali 1</string>
+    <string name="Player_2">Umdlali 2</string>
+    <string name="save_players">Londoloza Abadlali Futhi Qala Umdlalo</string>
+    <string name="RESULTS">IMIPHUMELA</string>
+    <string name="result_both">Imiphumela Yabo Bobabili Abadlali:</string>
+    <string name="PROFILE_SETTINGS">IZILUNGISELELO ZEPHROFAYILI</string>
+    <string name="GAME_SETTINGS">IZILUNGISELELO ZOMDLALO</string>
+    <string name="HELP_AND_SUPPORT">USIZO NOKUSEKELA</string>
+    <string name="about2">MAYELANA</string>
+    <string name="TRUE">IQINISO</string>
+    <string name="FALSE">AMANGA</string>
+
 
 
 </resources>

@@ -21,7 +21,7 @@
         android:id="@+id/tvResults"
         android:layout_width="103dp"
         android:layout_height="36dp"
-        android:text="RESULTS"
+        android:text="@string/RESULTS"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
