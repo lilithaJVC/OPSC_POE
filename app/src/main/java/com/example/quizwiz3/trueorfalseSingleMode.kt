@@ -116,7 +116,7 @@ class trueorfalseSingleMode : AppCompatActivity() {
 
     private fun fetchQuestions(category: String) {
         val apiService = RetrofitClient.instance.create(QuizApiService::class.java)
-        val call = apiService.getQuestions(category)
+        val call = apiService.getQuestions(category,  "questions-af")
 
         call.enqueue(object : Callback<List<TrueOrFalseQuestion>> {
             override fun onResponse(call: Call<List<TrueOrFalseQuestion>>, response: Response<List<TrueOrFalseQuestion>>) {

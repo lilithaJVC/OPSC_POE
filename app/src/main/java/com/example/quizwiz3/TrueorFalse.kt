@@ -22,6 +22,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.Locale
 import java.util.UUID
 
 class TrueorFalse : AppCompatActivity() {
@@ -146,8 +147,18 @@ class TrueorFalse : AppCompatActivity() {
     }
 
     private fun fetchQuestionsFromApi(category: String) {
+        val currentLocale: Locale = Locale.getDefault()
+        val languageCode: String = currentLocale.language
+        var selectedLanguage = "trueorfalse"
+        if (languageCode == "en") {
+            selectedLanguage = "trueorfalse"
+        } else if (languageCode == "af") {
+            selectedLanguage = "trueorfalse-af"
+        } else {
+            selectedLanguage = "trueorfalse-zu"
+        }
         val apiService = RetrofitClient.instance.create(QuizApiService::class.java)
-        val call = apiService.getQuestions(category)
+        val call = apiService.getQuestions(category,  selectedLanguage)
 
         call.enqueue(object : Callback<List<TrueOrFalseQuestion>> {
             override fun onResponse(call: Call<List<TrueOrFalseQuestion>>, response: Response<List<TrueOrFalseQuestion>>) {
