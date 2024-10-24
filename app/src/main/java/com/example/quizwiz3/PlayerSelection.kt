@@ -36,9 +36,6 @@ class PlayerSelection : AppCompatActivity() {
             finish() // This will close PlayerSelection
         }
 
-
-
-
         multibtn.setOnClickListener {
             // Open the Dashboard Activity
             val intent = Intent(this, PlayerDetails::class.java)

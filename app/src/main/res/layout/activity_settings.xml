@@ -17,10 +17,10 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/toolbarColor"
+            android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            android:background="@color/Pink"
-            android:minHeight="?attr/actionBarSize" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <Button
             android:id="@+id/btnProfileSettings"
@@ -66,13 +66,16 @@
             android:textSize="20dp"
             app:cornerRadius="0dp"/>
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="186dp"
-            android:layout_height="205dp"
-            android:layout_marginLeft="115sp"
-            android:layout_marginTop="25sp"
-            app:srcCompat="@mipmap/ic_launcher_foreground" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/settingsimage"
+            android:layout_width="263dp"
+            android:layout_height="169dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="56dp"
+            android:src="@drawable/quizwizlogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnBACK"

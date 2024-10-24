@@ -1,11 +1,15 @@
 package com.example.quizwiz3
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -24,6 +28,9 @@ class Results2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_results2)
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -71,4 +78,44 @@ class Results2 : AppCompatActivity() {
             else -> winnerTextView.text = "It's a Draw!"
         }
     }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.profile -> {
+                startActivity(Intent(this, Profile::class.java))
+                return true
+            }
+
+            R.id.dashboard -> {
+                startActivity(Intent(this, PlayerSelection::class.java))
+                return true
+            }
+
+            R.id.settings -> {
+                startActivity(Intent(this, com.example.quizwiz3.Settings::class.java))
+                return true
+            }
+
+            R.id.helpsupport -> {
+                startActivity(Intent(this, HelpSupport::class.java))
+                return true
+            }
+
+            R.id.about -> {
+                startActivity(Intent(this, About::class.java))
+                return true
+            }
+
+            R.id.logout -> {
+                startActivity(Intent(this, Logout::class.java))
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }
