@@ -28,7 +28,7 @@
         android:id="@+id/topAppBar"
         android:layout_width="413dp"
         android:layout_height="69dp"
-        android:background="@color/Pink"
+        android:background="@color/toolbarColor"
         android:theme="?attr/actionBarTheme"
         android:titleTextColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
