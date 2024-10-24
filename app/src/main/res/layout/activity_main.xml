@@ -10,11 +10,10 @@
     tools:context=".MainActivity">
 
 
-
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/profileimage"
-        android:layout_width="284dp"
-        android:layout_height="157dp"
+        android:layout_width="294dp"
+        android:layout_height="178dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="72dp"
         android:src="@drawable/quizwizlogo"
@@ -87,12 +86,13 @@
 
     <Button
         android:id="@+id/btnSSigned"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FF1493"
+        android:layout_width="124dp"
+        android:layout_height="49dp"
+        android:backgroundTint="@color/Pink"
         android:text="@string/Sign_up"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         android:textStyle="bold"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,8 +106,9 @@
         android:layout_margin="10dp"
         android:gravity="center_horizontal"
         android:text="@string/already_have_an_account_login"
-        android:textColor="#1F3F28"
-        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"

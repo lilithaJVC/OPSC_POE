@@ -11,7 +11,7 @@
         android:id="@+id/topAppBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#FF1493"
+        android:background="@color/Pink"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -58,27 +58,28 @@
 
     <Button
         android:id="@+id/Backbtn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FF1493"
+        android:layout_width="123dp"
+        android:layout_height="49dp"
+        android:backgroundTint="@color/Pink"
         android:text="@string/back"
         android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintHorizontal_bias="0.138"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.928" />
+        app:layout_constraintVertical_bias="0.891" />
 
     <Button
         android:id="@+id/dashboardbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FF1493"
+        android:backgroundTint="@color/lightBabyBlue"
         android:text="@string/DashBoard"
         android:textColor="#000000"
         android:textStyle="bold"
+        app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -88,48 +89,52 @@
 
     <Button
         android:id="@+id/nextbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="127dp"
+        android:layout_height="49dp"
+        android:backgroundTint="@color/Pink"
         android:text="@string/Next"
-        android:backgroundTint="#FF1493"
         android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.879"
+        app:layout_constraintHorizontal_bias="0.87"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.928" />
+        app:layout_constraintVertical_bias="0.891" />
 
     <Button
         android:id="@+id/truebtn"
-        android:layout_width="413dp"
+        android:layout_width="390dp"
         android:layout_height="60dp"
-        android:backgroundTint="#FF1493"
+        android:backgroundTint="@color/Pink"
         android:text="@string/TRUE"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         android:textStyle="bold"
+        app:cornerRadius="0dp"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.652" />
+        app:layout_constraintVertical_bias="0.654" />
 
     <Button
         android:id="@+id/falsebtn"
-        android:layout_width="413dp"
+        android:layout_width="390dp"
         android:layout_height="60dp"
-        android:backgroundTint="#FF1493"
+        android:backgroundTint="@color/Pink"
         android:text="@string/FALSE"
-        android:textColor="#000000"
+        android:textColor="@color/white"
+        android:textSize="17sp"
         android:textStyle="bold"
+        app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.758" />
+        app:layout_constraintVertical_bias="0.76" />
 
     <ImageView
         android:id="@+id/imageView"

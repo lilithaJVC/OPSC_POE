@@ -26,11 +26,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="664dp"
-        android:backgroundTint="#FF1493"
-        android:textColor="#000000"
+        android:backgroundTint="@color/Pink"
         android:text="@string/Biometrics"
+        android:textColor="@color/white"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintHorizontal_bias="0.548"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -76,20 +77,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="115dp"
-        android:layout_height="43dp"
-        android:backgroundTint="#FF1493"
+        android:layout_width="147dp"
+        android:layout_height="42dp"
+        android:backgroundTint="@color/Pink"
         android:text="@string/login"
-        android:textColor="#000000"
+        android:textColor="@color/white"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.649" />
+        app:layout_constraintVertical_bias="0.652" />
 
     <TextView
         android:id="@+id/tvRedirectSignUp"
@@ -100,7 +101,7 @@
         android:gravity="center_horizontal"
         android:onClick="navigateToSignUp"
         android:text="@string/don_t_have_an_account_sign_in"
-        android:textColor="#1F3F28"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
