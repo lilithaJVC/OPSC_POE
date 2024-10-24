@@ -26,6 +26,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
+import java.util.Locale
 import java.util.UUID
 
 
@@ -76,7 +77,7 @@ class SingleMultigame : AppCompatActivity() {
        // resultTextView = findViewById(R.id.resultTextView)
 
         val category = intent.getStringExtra("category") ?: "Default"
-        fetchQuestions(category)
+        fetchQuestionsFromApi(category)
 
 
        // fetchQuestionsFromApi(category)
@@ -219,8 +220,18 @@ class SingleMultigame : AppCompatActivity() {
 
     // Function to fetch from API and update Room database
     private fun fetchQuestionsFromApi(category: String) {
+        val currentLocale: Locale = Locale.getDefault()
+        val languageCode: String = currentLocale.language
+        var selectedLanguage = "questions"
+        if (languageCode == "en") {
+            selectedLanguage = "questions"
+        } else if (languageCode == "af") {
+            selectedLanguage = "questions-af"
+        } else {
+            selectedLanguage = "questions-zu"
+        }
         val apiService = RetrofitClient.instance.create(QuizApiService::class.java)
-        apiService.getMultipleChoiceQuestions(category).enqueue(object :
+        apiService.getMultipleChoiceQuestions(category, selectedLanguage).enqueue(object :
             Callback<List<MultipleChoiceQuestion>> {
             override fun onResponse(call: Call<List<MultipleChoiceQuestion>>, response: Response<List<MultipleChoiceQuestion>>) {
                 if (response.isSuccessful) {

@@ -43,7 +43,7 @@
             android:name=".Logout"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".Login"
             android:exported="false" />
         <activity
             android:name=".QuestionsAdapter"
@@ -90,7 +90,7 @@
             android:name=".Results"
             android:exported="true" /> <!-- Launcher Activity -->
         <activity
-            android:name=".Login"
+            android:name=".SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.QuizWiz3">
             <intent-filter>

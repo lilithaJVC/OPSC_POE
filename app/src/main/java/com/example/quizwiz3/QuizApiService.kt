@@ -10,13 +10,13 @@ interface QuizApiService {
     //code attribution
     //this code was taken from youtube
     //link:https://youtu.be/lz5lPAdA3fQ?si=JhNTuySEabDPHz3k
-    @GET("api/TrueOrFalseQuiz/get/{category}")
-    fun getQuestions(@Path("category") category: String): Call<List<TrueOrFalseQuestion>>
+    @GET("api/TrueOrFalseQuiz/get/{category}/{collectionName}")
+    fun getQuestions(@Path("category") category: String, @Path("collectionName") collectionName: String): Call<List<TrueOrFalseQuestion>>
     //code attribution
     //this code was taken from youtube
     //link:https://youtu.be/lz5lPAdA3fQ?si=JhNTuySEabDPHz3k
-    @GET("api/Quiz/get/{category}")
-    fun getMultipleChoiceQuestions(@Path("category") category: String): Call<List<MultipleChoiceQuestion>>
+    @GET("api/Quiz/get/{category}/{collectionName}")
+    fun getMultipleChoiceQuestions(@Path("category") category: String, @Path("collectionName") collectionName: String): Call<List<MultipleChoiceQuestion>>
 
     @POST("api/PostRegister")
     fun postUserDetails(@Body user: UserDetails): Call<Void>
