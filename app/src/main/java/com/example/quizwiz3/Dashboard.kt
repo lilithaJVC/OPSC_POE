@@ -73,7 +73,7 @@ class Dashboard : AppCompatActivity() {
                 true
             }
             R.id.dashboard -> {
-                startActivity(Intent(this, Dashboard::class.java))
+                startActivity(Intent(this, PlayerSelection::class.java))
                 true
             }
             R.id.settings -> {

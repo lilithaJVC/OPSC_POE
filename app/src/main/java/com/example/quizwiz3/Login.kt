@@ -154,7 +154,7 @@ class Login : AppCompatActivity() {
 
     fun navigateToSecondActivity() {
         finish()
-        val intent: Intent = Intent(this@Login, Dashboard::class.java)
+        val intent: Intent = Intent(this@Login, PlayerSelection::class.java)
         startActivity(intent)
     }
 
@@ -162,7 +162,7 @@ class Login : AppCompatActivity() {
         val biometricManager = BiometricManager.from(this)
         when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG)) {
             BiometricManager.BIOMETRIC_SUCCESS -> {
-                Toast.makeText(this, "Biometric features are available", Toast.LENGTH_SHORT).show()
+               // Toast.makeText(this, "Biometric features are available", Toast.LENGTH_SHORT).show()
             }
             BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> {
                 Toast.makeText(this, "No biometric features available on this device", Toast.LENGTH_SHORT).show()

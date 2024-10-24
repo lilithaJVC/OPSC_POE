@@ -379,10 +379,7 @@ class MultiChoice : AppCompatActivity() {
             }
 
             R.id.dashboard -> {
-                val intent = Intent(this, Dashboard::class.java).apply {
-                    putExtra("player1Name", player1Name)
-                    putExtra("player2Name", player2Name)
-                }
+                val intent = Intent(this, PlayerSelection::class.java)
                 startActivity(intent)
                 return true
             }

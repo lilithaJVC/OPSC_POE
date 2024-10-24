@@ -99,7 +99,7 @@ class TrueorFalse2 : AppCompatActivity() {
         dashboardbtn = findViewById(R.id.dashboardbtn)
         // Handle Back button to go to Dashboard
         dashboardbtn.setOnClickListener {
-            val intent = Intent(this, Dashboard::class.java)
+            val intent = Intent(this, PlayerSelection::class.java)
             startActivity(intent)
         }
     }
@@ -162,6 +162,7 @@ class TrueorFalse2 : AppCompatActivity() {
         } else {
             selectedLanguage = "trueorfalse-zu"
         }
+        Log.e("DatabaseSuccess", selectedLanguage)
         val apiService = RetrofitClient.instance.create(QuizApiService::class.java)
         val call = apiService.getQuestions(category,  selectedLanguage)
 
@@ -322,7 +323,7 @@ class TrueorFalse2 : AppCompatActivity() {
                 return true
             }
             R.id.dashboard -> {
-                val intent = Intent(this, Dashboard::class.java)
+                val intent = Intent(this, PlayerSelection::class.java)
                 startActivity(intent)
                 return true
             }
