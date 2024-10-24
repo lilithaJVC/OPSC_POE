@@ -94,7 +94,7 @@ class TrueorFalse : AppCompatActivity() {
         dashboardbtn = findViewById(R.id.dashboardbtn)
         // Handle Back button to go to Dashboard
         dashboardbtn.setOnClickListener {
-            val intent = Intent(this, Dashboard::class.java)
+            val intent = Intent(this, PlayerSelection::class.java)
             startActivity(intent)
         }
     }
@@ -339,7 +339,7 @@ class TrueorFalse : AppCompatActivity() {
                 return true
             }
             R.id.dashboard -> {
-                val intent = Intent(this, Dashboard::class.java)
+                val intent = Intent(this, PlayerSelection::class.java)
                 startActivity(intent)
                 return true
             }

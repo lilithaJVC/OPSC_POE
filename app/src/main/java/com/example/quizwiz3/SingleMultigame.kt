@@ -97,7 +97,7 @@ class SingleMultigame : AppCompatActivity() {
 
         // Handle Back button to go to PlayerSelection
         dashboardbtn.setOnClickListener {
-            val intent = Intent(this, Dashboard::class.java)
+            val intent = Intent(this, PlayerSelection::class.java)
             startActivity(intent)
         }
 
@@ -314,7 +314,7 @@ class SingleMultigame : AppCompatActivity() {
             }
 
             R.id.dashboard -> {
-                startActivity(Intent(this, Dashboard::class.java))
+                startActivity(Intent(this, PlayerSelection::class.java))
                 return true
             }
 

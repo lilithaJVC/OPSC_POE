@@ -114,7 +114,7 @@ class ChatGPTResult : AppCompatActivity() {
             }
 
             R.id.dashboard -> {
-                startActivity(Intent(this, Dashboard::class.java))
+                startActivity(Intent(this, PlayerSelection::class.java))
                 return true
             }
 

@@ -75,7 +75,7 @@ class trueorfalseSingleMode : AppCompatActivity() {
         showInstructionsDialog()
 
         // Fetch questions for the category
-        fetchQuestions(category)
+       // fetchQuestions(category)
 
         Backbtn2 = findViewById(R.id.Backbtn2)
         Backbtn2.setOnClickListener {

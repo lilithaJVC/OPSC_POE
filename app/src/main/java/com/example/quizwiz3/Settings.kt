@@ -100,7 +100,7 @@ class Settings : AppCompatActivity() {
                 return true
             }
             R.id.dashboard -> {
-                val intent = Intent(this, Dashboard::class.java)
+                val intent = Intent(this, PlayerSelection::class.java)
                 startActivity(intent)
                 return true
             }

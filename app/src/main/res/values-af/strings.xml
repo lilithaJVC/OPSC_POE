@@ -54,7 +54,8 @@
     <string name="about2">OOR</string>
     <string name="TRUE">WAAR</string>
     <string name="FALSE">ONWAAR</string>
-
+    <string name="SINGLE_PLAYER">ENKEL SPELER</string>
+    <string name="MULTIPLE_PLAYER">MEERVOUDIGE SPELER</string>
 
 
 </resources>
