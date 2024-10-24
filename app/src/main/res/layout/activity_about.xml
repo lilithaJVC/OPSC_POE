@@ -25,7 +25,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FF1493"
+            android:background="@color/Pink"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
 
@@ -100,11 +100,11 @@
 
         <Button
             android:id="@+id/btnBackSettings"
-            android:layout_width="269dp"
+            android:layout_width="181dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="120dp"
             android:layout_marginTop="625dp"
-            android:backgroundTint="#FF1493"
+            android:backgroundTint="@color/Pink"
             android:text="@string/back"
             android:textSize="20dp"
             app:cornerRadius="0dp" />
