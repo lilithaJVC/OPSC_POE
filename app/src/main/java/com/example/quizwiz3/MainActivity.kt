@@ -1,23 +1,30 @@
 package com.example.quizwiz3
 
 import android.R.attr.name
+import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import android.content.Intent
+import com.google.firebase.messaging.FirebaseMessaging
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.messaging.messaging
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,6 +32,21 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
+
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            // FCM SDK (and your app) can post notifications.
+        } else {
+            // Inform the user that notifications won't be shown
+            Toast.makeText(
+                this,
+                "Notifications are disabled. Enable them in settings.",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
 
     var gso: GoogleSignInOptions? = null
     var gsc: GoogleSignInClient? = null
@@ -35,17 +57,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvRedirectLogin: TextView
     private lateinit var auth: FirebaseAuth
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         FirebaseApp.initializeApp(this)
 
-        // Request notification permission for Android 13 and above
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 1001)
-        }
-        // Create the notification channel for Android 8 (Oreo) and above
+        Firebase.messaging.isAutoInitEnabled = true
+        // Ask for notification permission if required
+        // Other initializations (e.g., setting up notifications)
+        FirebaseApp.initializeApp(this)
         createNotificationChannel()
+        askNotificationPermission()
 
 
 //___________code attribution___________
@@ -83,6 +106,25 @@ class MainActivity : AppCompatActivity() {
         tvRedirectLogin.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
+        }
+    }
+    private fun askNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            when {
+                ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
+                        PackageManager.PERMISSION_GRANTED -> {
+                    // Permission already granted, proceed with notifications
+                }
+                shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS) -> {
+                    // Show rationale UI and request permission on user acceptance
+                    Toast.makeText(this, "Enable notifications for a better experience.", Toast.LENGTH_SHORT).show()
+                    requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                }
+                else -> {
+                    // Directly request the permission
+                    requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                }
+            }
         }
     }
 
