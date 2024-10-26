@@ -58,7 +58,7 @@ your experience and connect you with other players.</string>
     <string name="FALSE">FALSE</string>
     <string name="SINGLE_PLAYER">SINGLE PLAYER</string>
     <string name="MULTIPLE_PLAYER">MULTIPLE PLAYER</string>
-
+    <string name="msg_token_fmt" translatable="false">FCM Token: %1$s</string>
 
 
 

@@ -8,52 +8,49 @@ import android.os.Build
 import android.app.NotificationChannel
 import androidx.core.app.NotificationCompat
 import android.app.NotificationManager
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
+import android.widget.Toast
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 
 @SuppressLint("MissingFirebaseInstanceTokenRefresh")
-class MyFirebaseMessagingService : FirebaseMessagingService() {
+class MyFirebaseService  : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
 
-        // Check if message contains a notification payload
-        remoteMessage.notification?.let {
-            sendNotification(it.title, it.body)
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+            // Log and toast
+            val msg = getString(R.string.msg_token_fmt, token)
+            Log.d(TAG, msg)
+            Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+        })
+    }
+        override fun onNewToken(token: String) {
+            Log.d(TAG, "Refreshed token: $token")
+
+
+            // FCM registration token to your app server.
+            sendRegistrationToServer(token)
         }
+    // Sends the registration token to your app's server
+    private fun sendRegistrationToServer(token: String) {
+        // TODO: Implement this method to send token to your app server.
+        // Example: Network call or saving to a database.
+        Log.d(TAG, "Token sent to server: $token")
     }
 
-    private fun sendNotification(title: String?, messageBody: String?) {
-        // Define your channel ID and title for consistency
-        val channelId = "default_channel_id"  // Ensure this ID is unique to your app
-        val channelName = "General Notifications"  // Define the channel name
-
-        val notificationBuilder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.quizwizlogo)  // Ensure this drawable exists
-            .setContentTitle(title ?: "Notification")  // Fallback to a default title
-            .setContentText(
-                messageBody ?: "You have a new message."
-            )  // Fallback to a default message
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
-            .setAutoCancel(true)  // Dismiss notification after clicking
-
-// Get the notification manager service
-        val notificationManager =
-            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-// For Android Oreo and above, set the notification channel
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                channelId,
-                channelName,
-                NotificationManager.IMPORTANCE_HIGH
-            ).apply {
-                description = "General notifications for the app"
-            }
-            notificationManager.createNotificationChannel(channel)
-        }
-
-// Display the notification with a unique ID
-        notificationManager.notify(0, notificationBuilder.build())
+    companion object {
+        private const val TAG = "MyFirebaseService"
     }
 }

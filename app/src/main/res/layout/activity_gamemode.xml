@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="#89CFF0"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#89CFF0"
     tools:context=".gamemode">
 
     <androidx.appcompat.widget.Toolbar
@@ -14,11 +14,11 @@
         android:layout_height="wrap_content"
         android:background="@color/toolbarColor"
         android:theme="?attr/actionBarTheme"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:layout_constraintTop_toTopOf="parent"
+        android:titleTextColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:titleTextColor="@android:color/white" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <ImageButton
         android:id="@+id/singlebtn"
@@ -49,9 +49,9 @@
         android:layout_width="321dp"
         android:layout_height="62dp"
         android:text="@string/choose"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
@@ -60,26 +60,34 @@
         app:layout_constraintVertical_bias="0.17" />
 
     <TextView
-        android:id="@+id/singleplayertxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SINGLE PLAYER"
-        android:textSize="20sp"
-        android:textColor="@color/black"
+        android:id="@+id/textViewSP"
+        android:layout_width="248dp"
+        android:layout_height="39dp"
+        android:text="@string/SINGLE_PLAYER"
+        android:textColor="#000000"
+        android:textSize="24sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="176dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.601"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.238"
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/multiplayertxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MULTIPLAYER"
-        android:textColor="@color/black"
-        android:textSize="20sp"
+        android:id="@+id/textViewMP"
+        android:layout_width="248dp"
+        android:layout_height="39dp"
+        android:text="@string/MULTIPLE_PLAYER"
+        android:textColor="#000000"
+        android:textSize="24sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="391dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.546"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
