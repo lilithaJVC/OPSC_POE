@@ -101,9 +101,9 @@ class TrueorFalse : AppCompatActivity() {
 
     private fun showInstructionsDialog() {
         val alertDialog = AlertDialog.Builder(this)
-            .setTitle("Instructions")
-            .setMessage("Please click True or False to select your answer and click Next to proceed to the next question.")
-            .setPositiveButton("OK") { dialog, _ ->
+            .setTitle(getString(R.string.game_instructions))
+            .setMessage(getString(R.string.game_instructions_multi))
+            .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
                 dialog.dismiss() // Dismiss the dialog when the user clicks OK
             }
             .create()
@@ -112,7 +112,13 @@ class TrueorFalse : AppCompatActivity() {
     }
 
     private fun fetchQuestions(category: String) {
-        // First try to load questions from the Room database
+        val currentLocale: Locale = Locale.getDefault()
+        val languageCode: String = currentLocale.language
+        if (languageCode == "af") {
+            fetchQuestionsFromApi(category)
+        } else if (languageCode == "zu"){
+            fetchQuestionsFromApi(category)
+        } else {
         CoroutineScope(Dispatchers.IO).launch {
             val db = Room.databaseBuilder(
                 applicationContext,
@@ -127,11 +133,9 @@ class TrueorFalse : AppCompatActivity() {
                 // If we have questions in the local DB, display them
                 withContext(Dispatchers.Main) {
                     questions = localQuestions
-                    if(questions.isEmpty())
-                    {
+                    if (questions.isEmpty()) {
                         Log.e("DatabaseEmpty", "Successfully empty")
-                    }
-                    else {
+                    } else {
                         Log.e("DatabaseFull", "Successfully full")
                         displayQuestion()
                     }
@@ -144,6 +148,7 @@ class TrueorFalse : AppCompatActivity() {
                 Log.e("DatabaseError", "Error fetch")
             }
         }
+    }
     }
 
     private fun fetchQuestionsFromApi(category: String) {
@@ -363,7 +368,19 @@ class TrueorFalse : AppCompatActivity() {
                 startActivity(intent)
                 return true
             }
-            else -> return super.onOptionsItemSelected(item)
+            R.id.multilanguage -> {
+                val alertDialog = AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.multititle))
+                    .setMessage(getString(R.string.language_popup))
+                    .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
+                        dialog.dismiss() // Dismiss the dialog when the user clicks OK
+                    }
+                    .create()
+
+                alertDialog.show()
+
+            }
         }
+        return super.onOptionsItemSelected(item)
     }
 }

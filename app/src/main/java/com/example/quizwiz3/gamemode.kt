@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -99,8 +100,21 @@ class gamemode : AppCompatActivity() {
                 Toast.makeText(this, "Logout Selected", Toast.LENGTH_SHORT).show()
                 return true
             }
-            else -> return super.onOptionsItemSelected(item)
+            R.id.multilanguage -> {
+                val alertDialog = AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.multititle))
+                    .setMessage(getString(R.string.language_popup))
+                    .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
+                        dialog.dismiss() // Dismiss the dialog when the user clicks OK
+                    }
+                    .create()
+
+                alertDialog.show()
+
+            }
+
         }
+        return super.onOptionsItemSelected(item)
     }
 }
 

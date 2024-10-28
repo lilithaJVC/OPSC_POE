@@ -64,9 +64,9 @@ class Results : AppCompatActivity() {
     }
     private fun showInstructionsDialog() {
         val alertDialog = AlertDialog.Builder(this)
-            .setTitle("Instructions:")
-            .setMessage("Congratulations on completing the Quiz. Please click on any of the questions below to be given a deeper explanation of the Answer")
-            .setPositiveButton("OK") { dialog, _ ->
+            .setTitle(getString(R.string.results_title))
+            .setMessage(getString(R.string.results))
+            .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
                 dialog.dismiss() // Dismiss the dialog when the user clicks OK
             }
             .create()
@@ -151,6 +151,18 @@ class Results : AppCompatActivity() {
 
             R.id.logout -> {
                 startActivity(Intent(this, Logout::class.java))
+
+            }
+            R.id.multilanguage -> {
+                val alertDialog = AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.multititle))
+                    .setMessage(getString(R.string.language_popup))
+                    .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
+                        dialog.dismiss() // Dismiss the dialog when the user clicks OK
+                    }
+                    .create()
+
+                alertDialog.show()
 
             }
         }

@@ -59,10 +59,16 @@ your experience and connect you with other players.</string>
     <string name="SINGLE_PLAYER">SINGLE PLAYER</string>
     <string name="MULTIPLE_PLAYER">MULTIPLE PLAYER</string>
 
+    <string name="language_popup">This Quiz App offers a multi-language functionality! Simply go into your device settings and select either Afrikaans or isiZulu as the default language. Close and re-open the QuizApp and voila!</string>
+    <string name="game_instructions">Instructions</string>
+    <string name="game_instructions2">Please click a button to select your answer and click Next to proceed to the next question.</string>
+    <string name="ok">OK</string>
+    <string name="game_instructions_multi">Answer the questions in turns. Select the correct answer to earn points!</string>
+    <string name="results_title">Horay!</string>
+    <string name="results">Congratulations on completing the Quiz. Please click on any of the questions below to be given a deeper explanation of the Answer</string>
+    <string name="multititle">Multi-language</string>
 
-
-
-
-
+    <string name="ready_message1">are ready to go!</string>
+    <string name="ready_message2">Players Ready</string>
 
 </resources>

@@ -77,10 +77,9 @@ class SingleMultigame : AppCompatActivity() {
        // resultTextView = findViewById(R.id.resultTextView)
 
         val category = intent.getStringExtra("category") ?: "Default"
-        fetchQuestionsFromApi(category)
+        fetchQuestions(category)
 
 
-       // fetchQuestionsFromApi(category)
 
         // Show the alert dialog when the activity starts
         showInstructionsDialog()
@@ -124,9 +123,9 @@ class SingleMultigame : AppCompatActivity() {
 
     private fun showInstructionsDialog() {
         val alertDialog = AlertDialog.Builder(this)
-            .setTitle("Instructions")
-            .setMessage("Please click a button to select your answer and click Next to proceed to the next question.")
-            .setPositiveButton("OK") { dialog, _ ->
+            .setTitle(getString(R.string.game_instructions))
+            .setMessage(getString(R.string.game_instructions2))
+            .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
                 dialog.dismiss() // Dismiss the dialog when the user clicks OK
             }
             .create()
@@ -183,37 +182,44 @@ class SingleMultigame : AppCompatActivity() {
     //link:https://www.youtube.com/results?search_query=linking+a+button+to+aclass+on+adnroid+studio+
 
     private fun fetchQuestions(category: String) {
-        // First try to load questions from the Room database
-        CoroutineScope(Dispatchers.IO).launch {
-            val db = Room.databaseBuilder(
-                applicationContext,
-                QuizDatabase::class.java, QuizDatabase.name
-            ).build()
-            val questionDao = db.questionDao()
+        val currentLocale: Locale = Locale.getDefault()
+        val languageCode: String = currentLocale.language
+        if (languageCode == "af") {
+            fetchQuestionsFromApi(category)
+        } else if (languageCode == "zu"){
+            fetchQuestionsFromApi(category)
+        } else {
 
-            // Check if questions are available in the local Room DB
-            val localQuestions = questionDao.getQuestionsByCategory(category)
 
-            if (localQuestions.isNotEmpty()) {
-                // If we have questions in the local DB, display them
-                withContext(Dispatchers.Main) {
-                    questions = localQuestions
-                    if(questions.isEmpty())
-                    {
-                        Log.e("DatabaseEmpty", "Successfully empty")
+            CoroutineScope(Dispatchers.IO).launch {
+                val db = Room.databaseBuilder(
+                    applicationContext,
+                    QuizDatabase::class.java, QuizDatabase.name
+                ).build()
+                val questionDao = db.questionDao()
+
+                // Check if questions are available in the local Room DB
+                val localQuestions = questionDao.getQuestionsByCategory(category)
+
+                if (localQuestions.isNotEmpty()) {
+                    // If we have questions in the local DB, display them
+                    withContext(Dispatchers.Main) {
+                        questions = localQuestions
+                        if (questions.isEmpty()) {
+                            Log.e("DatabaseEmpty", "Successfully empty")
+                        } else {
+                            Log.e("DatabaseFull", "Successfully full")
+                            displayCurrentQuestion()
+                        }
+
+
+                        Log.e("DatabaseSuccess", "Successfully fetch")
                     }
-                    else {
-                        Log.e("DatabaseFull", "Successfully full")
-                        displayCurrentQuestion()
-                    }
-
-
-                    Log.e("DatabaseSuccess", "Successfully fetch")
+                } else {
+                    // If no questions found, or if the user wants to refresh, fetch from the API
+                    fetchQuestionsFromApi(category)
+                    Log.e("DatabaseError", "Error fetch")
                 }
-            } else {
-                // If no questions found, or if the user wants to refresh, fetch from the API
-                 fetchQuestionsFromApi(category)
-                Log.e("DatabaseError", "Error fetch")
             }
         }
     }
@@ -336,6 +342,18 @@ class SingleMultigame : AppCompatActivity() {
             R.id.logout -> {
                 Toast.makeText(this, "Logged Out acti", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, Logout::class.java))
+
+            }
+            R.id.multilanguage -> {
+                val alertDialog = AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.multititle))
+                    .setMessage(getString(R.string.language_popup))
+                    .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
+                        dialog.dismiss() // Dismiss the dialog when the user clicks OK
+                    }
+                    .create()
+
+                alertDialog.show()
 
             }
         }

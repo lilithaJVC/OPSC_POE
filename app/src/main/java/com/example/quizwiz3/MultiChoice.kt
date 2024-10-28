@@ -92,7 +92,7 @@ class MultiChoice : AppCompatActivity() {
 
         // Handle Dashboard button to go back to Dashboard
         dashboardbtn.setOnClickListener {
-            val intent = Intent(this, Dashboard::class.java).apply {
+            val intent = Intent(this, PlayerSelection::class.java).apply {
                 putExtra("player1Name", player1Name)
                 putExtra("player2Name", player2Name)
             }
@@ -352,11 +352,17 @@ class MultiChoice : AppCompatActivity() {
      * Shows the instructions dialog.
      */
     private fun showInstructionsDialog() {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Instructions")
-        builder.setMessage("Answer the questions in turns. Select the correct answer to earn points!")
-        builder.setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
-        builder.show()
+
+            val alertDialog = AlertDialog.Builder(this)
+                .setTitle(getString(R.string.game_instructions))
+                .setMessage(getString(R.string.game_instructions_multi))
+                .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
+                    dialog.dismiss() // Dismiss the dialog when the user clicks OK
+                }
+                .create()
+
+            alertDialog.show() // Display the dialog
+
     }
 
 
@@ -403,6 +409,18 @@ class MultiChoice : AppCompatActivity() {
                 Toast.makeText(this, "Logged Out", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, Logout::class.java))
                 return true
+            }
+            R.id.multilanguage -> {
+                val alertDialog = AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.multititle))
+                    .setMessage(getString(R.string.language_popup))
+                    .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
+                        dialog.dismiss() // Dismiss the dialog when the user clicks OK
+                    }
+                    .create()
+
+                alertDialog.show()
+
             }
         }
         return super.onOptionsItemSelected(item)

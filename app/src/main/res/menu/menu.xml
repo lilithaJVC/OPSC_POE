@@ -40,5 +40,11 @@
             android:title="Logout"
             android:orderInCategory="700"
             app:showAsAction="never" />
+    <item
+        android:id="@+id/multilanguage"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="Change Language"
+        android:orderInCategory="700"
+        app:showAsAction="never" />
 
 </menu>

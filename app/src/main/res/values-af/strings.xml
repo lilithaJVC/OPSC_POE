@@ -56,6 +56,14 @@
     <string name="FALSE">ONWAAR</string>
     <string name="SINGLE_PLAYER">ENKEL SPELER</string>
     <string name="MULTIPLE_PLAYER">MEERVOUDIGE SPELER</string>
-
-
+    <string name="language_popup">Hierdie Quiz App bied n meertalige funksionaliteit! Gaan eenvoudig na jou toestel se instellings en kies Afrikaans of isiZulu as die standaardtaal. Sluit en heropen die QuizApp, en voilà!</string>
+    <string name="game_instructions">Instruksies</string>
+    <string name="game_instructions2">Klik asseblief op n knoppie om jou antwoord te kies en klik Volgende om na die volgende vraag te gaan.</string>
+    <string name="ok">OK</string>
+    <string name="game_instructions_multi">Beantwoord die vrae om die beurt. Kies die korrekte antwoord om punte te verdien!</string>
+    <string name="results_title">Hoera!</string>
+    <string name="results">Baie geluk met die voltooiing van die Quiz. Klik asseblief op enige van die vrae hieronder om n dieper verduideliking van die antwoord te kry.</string>
+    <string name="multititle">Meertaligheid</string>
+    <string name="ready_message1">is gereed om te gaan!</string>
+    <string name="ready_message2">Spelers Gereed</string>
 </resources>

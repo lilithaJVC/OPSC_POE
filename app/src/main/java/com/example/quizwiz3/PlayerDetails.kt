@@ -61,9 +61,9 @@ class PlayerDetails : AppCompatActivity() {
 
     private fun showPlayersReadyDialog(player1: String, player2: String, category: String) {
         val dialogBuilder = AlertDialog.Builder(this)
-        dialogBuilder.setMessage("$player1 and $player2 are ready to go!")
+        dialogBuilder.setMessage("$player1 + $player2 " + getString(R.string.ready_message1))
             .setCancelable(false)
-            .setPositiveButton("OK") { dialog, _ ->
+            .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
                 dialog.dismiss() // Dismiss the dialog when "OK" is clicked
 
                 // Log the category for debugging
@@ -83,7 +83,7 @@ class PlayerDetails : AppCompatActivity() {
                 finish() // Optionally finish this activity if you don't want to go back to it
             }
         val alert = dialogBuilder.create()
-        alert.setTitle("Players Ready")
+        alert.setTitle(getString(R.string.ready_message2))
         alert.show()
     }
     /**
@@ -129,6 +129,18 @@ class PlayerDetails : AppCompatActivity() {
                 Toast.makeText(this, "Logged Out", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, Logout::class.java))
                 return true
+            }
+            R.id.multilanguage -> {
+                val alertDialog = AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.multititle))
+                    .setMessage(getString(R.string.language_popup))
+                    .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
+                        dialog.dismiss() // Dismiss the dialog when the user clicks OK
+                    }
+                    .create()
+
+                alertDialog.show()
+
             }
         }
         return super.onOptionsItemSelected(item)
