@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
@@ -112,6 +113,18 @@ class Results2 : AppCompatActivity() {
 
             R.id.logout -> {
                 startActivity(Intent(this, Logout::class.java))
+
+            }
+            R.id.multilanguage -> {
+                val alertDialog = AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.multititle))
+                    .setMessage(getString(R.string.language_popup))
+                    .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
+                        dialog.dismiss() // Dismiss the dialog when the user clicks OK
+                    }
+                    .create()
+
+                alertDialog.show()
 
             }
         }

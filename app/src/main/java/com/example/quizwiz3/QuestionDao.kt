@@ -8,7 +8,7 @@ import androidx.room.Query
 @Dao
 interface QuestionDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAll(questions: List<MultipleChoiceQuestion>)
 
     @Query("SELECT * FROM multiple_choice_questions WHERE category = :category")

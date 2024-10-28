@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.Switch
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
@@ -163,6 +164,18 @@ class GameSettings : AppCompatActivity() {
             R.id.logout -> {
                 Toast.makeText(this, "Logged Out acti", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, Logout::class.java))
+
+            }
+            R.id.multilanguage -> {
+                val alertDialog = AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.multititle))
+                    .setMessage(getString(R.string.language_popup))
+                    .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
+                        dialog.dismiss() // Dismiss the dialog when the user clicks OK
+                    }
+                    .create()
+
+                alertDialog.show()
 
             }
         }

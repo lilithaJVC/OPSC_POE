@@ -57,6 +57,17 @@
     <string name="FALSE">AMANGA</string>
     <string name="SINGLE_PLAYER">UMDLALI OYEDWA</string>
     <string name="MULTIPLE_PLAYER">ABADLALI ABANINGI</string>
+    <string name="language_popup">Lolu hlelo lwe-Quiz App lunikezela ngokusekela izilimi eziningi! Vele ungene kuzilungiselelo zedivayisi yakho bese ukhetha isiZulu noma isiBhunu njengenkinga olufisayo. Vala futhi uvule kabusha i-QuizApp bese kuba njalo!</string>
+    <string name="game_instructions">Imiyalelo</string>
+    <string name="game_instructions2">Sicela uchofoze inkinobho ukuze ukhethe impendulo yakho bese uchofoza Okulandelayo ukuze uqhubeke nombuzo olandelayo.</string>
+    <string name="ok">KULUNGILE</string>
+    <string name="game_instructions_multi">Phendula imibuzo ngokushintshana. Khetha impendulo efanele ukuze uthole amaphuzu!</string>
+    <string name="results_title">Ushaye!</string>
+    <string name="results">Siyakuhalalisela ngokuphothula i-Quiz. Sicela uchofoze noma yimuphi umbuzo ongezansi ukuze uthole incazelo ejulile yeMpendulo</string>
+    <string name="multititle">Izilimi Eziningi</string>
+    <string name="ready_message1">selungele ukuhamba!</string>
+    <string name="ready_message2">Abadlali Sebelungele</string>
+
 
 
 

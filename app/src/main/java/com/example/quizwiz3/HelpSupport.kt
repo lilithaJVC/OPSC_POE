@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.google.androidgamesdk.gametextinput.Settings
@@ -109,6 +110,18 @@ class HelpSupport : AppCompatActivity() {
 
             R.id.logout -> {
                 startActivity(Intent(this, Logout::class.java))
+
+            }
+            R.id.multilanguage -> {
+                val alertDialog = AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.multititle))
+                    .setMessage(getString(R.string.language_popup))
+                    .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
+                        dialog.dismiss() // Dismiss the dialog when the user clicks OK
+                    }
+                    .create()
+
+                alertDialog.show()
 
             }
         }

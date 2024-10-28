@@ -61,8 +61,8 @@
 
     <Button
         android:id="@+id/backbtn"
-        android:layout_width="142dp"
-        android:layout_height="44dp"
+        android:layout_width="153dp"
+        android:layout_height="45dp"
         android:backgroundTint="@color/Pink"
         android:text="@string/back"
         android:textColor="#000000"
@@ -77,8 +77,8 @@
 
     <Button
         android:id="@+id/nextbtn"
-        android:layout_width="136dp"
-        android:layout_height="46dp"
+        android:layout_width="151dp"
+        android:layout_height="48dp"
         android:backgroundTint="@color/Pink"
         android:text="@string/Next"
         android:textColor="#000000"

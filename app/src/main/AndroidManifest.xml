@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
     <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" tools:node="remove"/>
 
     <meta-data
@@ -11,6 +14,7 @@
     <meta-data
         android:name="firebase_analytics_collection_enabled"
         android:value="false" />
+
 
     <application
         android:allowBackup="true"
@@ -23,6 +27,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizWiz3"
         android:usesCleartextTraffic="true">
+
         <activity
             android:name=".TrueorFalse2"
             android:exported="false" />
@@ -51,7 +56,7 @@
             android:name=".Logout"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".About"
             android:exported="false" />
         <activity
             android:name=".QuestionsAdapter"
@@ -91,7 +96,7 @@
             android:exported="false"
             android:theme="@style/Theme.QuizWiz3" />
         <activity
-            android:name=".About"
+            android:name=".Login"
             android:exported="true"
             android:theme="@style/Theme.QuizWiz3" />
         <activity
@@ -107,6 +112,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service
             android:name=".MyFirebaseService"
             android:exported="false">

@@ -164,6 +164,18 @@ class Profile : AppCompatActivity() {
                 startActivity(Intent(this, Logout::class.java))
 
             }
+            R.id.multilanguage -> {
+                val alertDialog = AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.multititle))
+                    .setMessage(getString(R.string.language_popup))
+                    .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
+                        dialog.dismiss() // Dismiss the dialog when the user clicks OK
+                    }
+                    .create()
+
+                alertDialog.show()
+
+            }
         }
         return super.onOptionsItemSelected(item)
     }

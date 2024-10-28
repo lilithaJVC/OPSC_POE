@@ -11,6 +11,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
@@ -136,6 +137,18 @@ class ChatGPTResult : AppCompatActivity() {
             R.id.logout -> {
                 Toast.makeText(this, "Logged Out acti", Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, Logout::class.java))
+
+            }
+            R.id.multilanguage -> {
+                val alertDialog = AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.multititle))
+                    .setMessage(getString(R.string.language_popup))
+                    .setPositiveButton(getString(R.string.ok)) { dialog, _ ->
+                        dialog.dismiss() // Dismiss the dialog when the user clicks OK
+                    }
+                    .create()
+
+                alertDialog.show()
 
             }
         }

@@ -9,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface TrueOrFalseDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAll(questions: List<TrueOrFalseQuestion>)
 
     @Query("SELECT * FROM true_or_false_questions WHERE category = :category")
