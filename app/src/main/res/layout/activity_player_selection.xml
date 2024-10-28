@@ -40,7 +40,7 @@
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.742"
+        app:layout_constraintVertical_bias="0.76"
         app:srcCompat="@drawable/multiplayer1" />
 
     <TextView
@@ -59,28 +59,36 @@
         app:layout_constraintVertical_bias="0.17" />
 
     <TextView
-        android:id="@+id/singleplayertxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textViewSP"
+        android:layout_width="248dp"
+        android:layout_height="39dp"
         android:text="@string/SINGLE_PLAYER"
-        android:textSize="20sp"
-        android:textColor="@color/black"
+        android:textColor="#000000"
+        android:textSize="24sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="176dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.254"
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/multiplayertxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/textViewMP"
+        android:layout_width="248dp"
+        android:layout_height="39dp"
         android:text="@string/MULTIPLE_PLAYER"
-        android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textColor="#000000"
+        android:textSize="24sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="119dp"
-        tools:layout_editor_absoluteY="391dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.562"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
