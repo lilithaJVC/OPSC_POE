@@ -273,7 +273,7 @@ class SingleMultigame : AppCompatActivity() {
 
             override fun onFailure(call: Call<List<MultipleChoiceQuestion>>, t: Throwable) {
                 // Handle the failure
-                QuestionTXT.text = "Error: ${t.message}"
+                QuestionTXT.text = "Please connect to the Internet to load questions"
             }
         })
     }
