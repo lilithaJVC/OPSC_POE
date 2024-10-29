@@ -203,14 +203,14 @@ class TrueorFalse2 : AppCompatActivity() {
                         Toast.makeText(this@TrueorFalse2, "No questions found", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Log.e("QuizWiz", "Failed to fetch questions: ${response.errorBody()?.string()}")
-                    Toast.makeText(this@TrueorFalse2, "Failed to fetch questions: ${response.message()}", Toast.LENGTH_SHORT).show()
+                    Log.e("QuizWiz", "Failed to fetch questions")
+                   // Toast.makeText(this@TrueorFalse2, "Failed to fetch questions: ${response.message()}", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<List<TrueOrFalseQuestion>>, t: Throwable) {
                 Log.e("QuizWiz", "Error fetching questions", t)
-                Toast.makeText(this@TrueorFalse2, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@TrueorFalse2, "Please connect to the Internet to load questions", Toast.LENGTH_SHORT).show()
             }
         })
     }
