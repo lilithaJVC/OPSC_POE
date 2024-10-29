@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -46,7 +47,8 @@ class gamemode : AppCompatActivity() {
             finish() // This will close PlayerSelection
         }
 
-
+        val toolbar: Toolbar = findViewById(R.id.topAppBar)
+        setSupportActionBar(toolbar)
 
 
         multibtn.setOnClickListener {
