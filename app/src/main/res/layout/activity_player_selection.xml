@@ -40,17 +40,17 @@
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.76"
+        app:layout_constraintVertical_bias="0.809"
         app:srcCompat="@drawable/multiplayer1" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="321dp"
-        android:layout_height="62dp"
+        android:layout_width="344dp"
+        android:layout_height="60dp"
         android:text="@string/choose"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
@@ -60,34 +60,34 @@
 
     <TextView
         android:id="@+id/textViewSP"
-        android:layout_width="248dp"
-        android:layout_height="39dp"
+        android:layout_width="268dp"
+        android:layout_height="34dp"
         android:text="@string/SINGLE_PLAYER"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.254"
+        app:layout_constraintVertical_bias="0.249"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textViewMP"
-        android:layout_width="248dp"
-        android:layout_height="39dp"
+        android:layout_width="298dp"
+        android:layout_height="38dp"
         android:text="@string/MULTIPLE_PLAYER"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintHorizontal_bias="0.654"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562"
+        app:layout_constraintVertical_bias="0.581"
         tools:ignore="MissingConstraints" />
 
 

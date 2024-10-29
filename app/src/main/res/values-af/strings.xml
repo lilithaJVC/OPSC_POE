@@ -66,4 +66,13 @@
     <string name="multititle">Meertaligheid</string>
     <string name="ready_message1">is gereed om te gaan!</string>
     <string name="ready_message2">Spelers Gereed</string>
+
+    <string name="Profile">Profiel</string>
+    <string name="Dashboard">Paneelbord</string>
+    <string name="Settings">Instellings</string>
+    <string name="Help">Hulp</string>
+    <string name="About">Oor</string>
+    <string name="Logout">Teken uit</string>
+    <string name="Change_Language">Verander Taal</string>
+
 </resources>

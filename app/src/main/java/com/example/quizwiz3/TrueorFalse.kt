@@ -114,11 +114,14 @@ class TrueorFalse : AppCompatActivity() {
     private fun fetchQuestions(category: String) {
         val currentLocale: Locale = Locale.getDefault()
         val languageCode: String = currentLocale.language
-        if (languageCode == "af") {
-            fetchQuestionsFromApi(category)
-        } else if (languageCode == "zu"){
-            fetchQuestionsFromApi(category)
+        var selectedLanguage = "questions"
+        if (languageCode == "en") {
+            selectedLanguage = "questions"
+        } else if (languageCode == "af") {
+            selectedLanguage = "questions-af"
         } else {
+            selectedLanguage = "questions-zu"
+        }
         CoroutineScope(Dispatchers.IO).launch {
             val db = Room.databaseBuilder(
                 applicationContext,
@@ -127,7 +130,7 @@ class TrueorFalse : AppCompatActivity() {
             val trueOrFalseDao = db.trueOrFalseDao()
 
             // Check if questions are available in the local Room DB
-            val localQuestions = trueOrFalseDao.getQuestionsByCategory(category)
+            val localQuestions = trueOrFalseDao.getQuestionsByCategory("$category-$selectedLanguage")
 
             if (localQuestions.isNotEmpty()) {
                 // If we have questions in the local DB, display them
@@ -148,7 +151,7 @@ class TrueorFalse : AppCompatActivity() {
                 Log.e("DatabaseError", "Error fetch")
             }
         }
-    }
+
     }
 
     private fun fetchQuestionsFromApi(category: String) {
@@ -178,7 +181,7 @@ class TrueorFalse : AppCompatActivity() {
                                 questionText = it.questionText,
                                 correctAnswer = it.correctAnswer,
                                 incorrectAnswer = it.incorrectAnswer,
-                                category = category
+                                category = "$category-$selectedLanguage"
                             )
                         } ?: emptyList()
                         CoroutineScope(Dispatchers.IO).launch {

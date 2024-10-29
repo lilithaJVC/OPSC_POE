@@ -184,12 +184,14 @@ class SingleMultigame : AppCompatActivity() {
     private fun fetchQuestions(category: String) {
         val currentLocale: Locale = Locale.getDefault()
         val languageCode: String = currentLocale.language
-        if (languageCode == "af") {
-            fetchQuestionsFromApi(category)
-        } else if (languageCode == "zu"){
-            fetchQuestionsFromApi(category)
+        var selectedLanguage = "questions"
+        if (languageCode == "en") {
+            selectedLanguage = "questions"
+        } else if (languageCode == "af") {
+            selectedLanguage = "questions-af"
         } else {
-
+            selectedLanguage = "questions-zu"
+        }
 
             CoroutineScope(Dispatchers.IO).launch {
                 val db = Room.databaseBuilder(
@@ -199,7 +201,7 @@ class SingleMultigame : AppCompatActivity() {
                 val questionDao = db.questionDao()
 
                 // Check if questions are available in the local Room DB
-                val localQuestions = questionDao.getQuestionsByCategory(category)
+                val localQuestions = questionDao.getQuestionsByCategory("$category-$selectedLanguage")
 
                 if (localQuestions.isNotEmpty()) {
                     // If we have questions in the local DB, display them
@@ -221,7 +223,7 @@ class SingleMultigame : AppCompatActivity() {
                     Log.e("DatabaseError", "Error fetch")
                 }
             }
-        }
+
     }
 
     // Function to fetch from API and update Room database
@@ -247,7 +249,7 @@ class SingleMultigame : AppCompatActivity() {
                             questionText = it.questionText,
                             options = it.options,
                             answer = it.answer,
-                            category = category
+                            category = "$category-$selectedLanguage"
                         )
                     } ?: emptyList()
                     questions = response.body() ?: emptyList()
