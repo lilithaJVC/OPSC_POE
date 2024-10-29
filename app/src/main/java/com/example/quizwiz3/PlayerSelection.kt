@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.example.quizwiz3.R.id
 
 class PlayerSelection : AppCompatActivity() {
@@ -42,6 +43,8 @@ class PlayerSelection : AppCompatActivity() {
             val intent = Intent(this, PlayerDetails::class.java)
             startActivity(intent)
         }
+        val toolbar: Toolbar = findViewById(R.id.topAppBar)
+        setSupportActionBar(toolbar)
     }
 
     // Inflate the menu

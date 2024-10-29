@@ -33,21 +33,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
-    private val requestPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { isGranted: Boolean ->
-        if (isGranted) {
-            // FCM SDK (and your app) can post notifications.
-        } else {
-            // Inform the user that notifications won't be shown
-            Toast.makeText(
-                this,
-                "Notifications are disabled. Enable them in settings.",
-                Toast.LENGTH_LONG
-            ).show()
-        }
-    }
-
     var gso: GoogleSignInOptions? = null
     var gsc: GoogleSignInClient? = null
     private lateinit var etEmail: EditText
@@ -62,13 +47,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         FirebaseApp.initializeApp(this)
-
-        Firebase.messaging.isAutoInitEnabled = true
-        // Ask for notification permission if required
-        // Other initializations (e.g., setting up notifications)
-        FirebaseApp.initializeApp(this)
-        createNotificationChannel()
-        askNotificationPermission()
 
 
 //___________code attribution___________
@@ -85,11 +63,11 @@ class MainActivity : AppCompatActivity() {
 //            navigateToSecondActivity()
 //        }
         val googleSignInButton = findViewById<SignInButton>(R.id.signIn)
-        googleSignInButton.setOnClickListener {signIn() }
+        googleSignInButton.setOnClickListener { signIn() }
 
 
         etEmail = findViewById(R.id.etEmailAddress)
-       etPasword = findViewById(R.id.etPassword)
+        etPasword = findViewById(R.id.etPassword)
         etName = findViewById(R.id.etName)
         btnSignUp = findViewById(R.id.btnSSigned)
         tvRedirectLogin = findViewById(R.id.tvRedirectLogin)
@@ -106,25 +84,6 @@ class MainActivity : AppCompatActivity() {
         tvRedirectLogin.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
-        }
-    }
-    private fun askNotificationPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            when {
-                ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
-                        PackageManager.PERMISSION_GRANTED -> {
-                    // Permission already granted, proceed with notifications
-                }
-                shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS) -> {
-                    // Show rationale UI and request permission on user acceptance
-                    Toast.makeText(this, "Enable notifications for a better experience.", Toast.LENGTH_SHORT).show()
-                    requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-                }
-                else -> {
-                    // Directly request the permission
-                    requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-                }
-            }
         }
     }
 
@@ -144,7 +103,8 @@ class MainActivity : AppCompatActivity() {
                     saveUserDetails(name, email, firebaseUUID)
 
                 } else {
-                    Toast.makeText(this, "Sign Up Failed! Please try again.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Sign Up Failed! Please try again.", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
         }
@@ -165,11 +125,16 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
                     // Handle successful response
-                    Toast.makeText(this@MainActivity, "Sign up successful!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, "Sign up successful!", Toast.LENGTH_SHORT)
+                        .show()
                     navigateToSecondActivity()
                 } else {
                     // Handle error response
-                    Toast.makeText(this@MainActivity, "Failed to sign up. Please try again.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@MainActivity,
+                        "Failed to sign up. Please try again.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
@@ -194,15 +159,18 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == 1000) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
-               val account = task.getResult(ApiException::class.java)
+                val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account.idToken)
 
             } catch (e: ApiException) {
-                Toast.makeText(applicationContext,
-                "Something went wrong", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    applicationContext,
+                    "Something went wrong", Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
+
     private fun firebaseAuthWithGoogle(idToken: String?) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
 
@@ -218,7 +186,8 @@ class MainActivity : AppCompatActivity() {
 
                 } else {
                     // Sign in failed
-                    Toast.makeText(this, "Firebase Authentication Failed", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Firebase Authentication Failed", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
     }
@@ -228,22 +197,8 @@ class MainActivity : AppCompatActivity() {
         val intent: Intent = Intent(this@MainActivity, PlayerSelection::class.java)
         startActivity(intent)
     }
-
-    private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "QuizWiz Notifications"
-            val descriptionText = "Channel for QuizWiz app notifications"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel("QUIZWIZ_CHANNEL_ID", name, importance).apply {
-                description = descriptionText
-            }
-
-            val notificationManager: NotificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
-        }
-    }
 }
+
 
 //___________end___________
 
