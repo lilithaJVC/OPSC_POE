@@ -75,4 +75,11 @@ your experience and connect you with other players.</string>
     <string name="ready_message1">are ready to go!</string>
     <string name="ready_message2">Players Ready</string>
 
+    <string name="Profile">Profile</string>
+    <string name="Dashboard">Dashboard</string>
+    <string name="Settings">Settings</string>
+    <string name="Help">Help</string>
+    <string name="About">About</string>
+    <string name="Logout">Logout</string>
+    <string name="Change_Language">Change Language</string>
 </resources>

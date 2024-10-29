@@ -190,7 +190,16 @@ class MultiChoice : AppCompatActivity() {
      * Fetches multiple-choice questions based on the selected category.
      */
     private fun fetchQuestions(category: String) {
-        // First try to load questions from the Room database
+        val currentLocale: Locale = Locale.getDefault()
+        val languageCode: String = currentLocale.language
+        var selectedLanguage = "questions"
+        if (languageCode == "en") {
+            selectedLanguage = "questions"
+        } else if (languageCode == "af") {
+            selectedLanguage = "questions-af"
+        } else {
+            selectedLanguage = "questions-zu"
+        }
         CoroutineScope(Dispatchers.IO).launch {
             val db = Room.databaseBuilder(
                 applicationContext,
@@ -199,7 +208,7 @@ class MultiChoice : AppCompatActivity() {
             val questionDao = db.questionDao()
 
             // Check if questions are available in the local Room DB
-            val localQuestions = questionDao.getQuestionsByCategory(category)
+            val localQuestions = questionDao.getQuestionsByCategory("$category-$selectedLanguage")
 
             if (localQuestions.isNotEmpty()) {
                 // If we have questions in the local DB, display them
@@ -248,7 +257,7 @@ class MultiChoice : AppCompatActivity() {
                             questionText = it.questionText,
                             options = it.options,
                             answer = it.answer,
-                            category = category
+                            category = "$category-$selectedLanguage"
                         )
                     } ?: emptyList()
                     questions = response.body() ?: emptyList()

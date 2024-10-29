@@ -68,6 +68,14 @@
     <string name="ready_message1">selungele ukuhamba!</string>
     <string name="ready_message2">Abadlali Sebelungele</string>
 
+    <string name="Profile">Iphrofayela</string>
+    <string name="Dashboard">Ideshibhodi</string>
+    <string name="Settings">Izilungiselelo</string>
+    <string name="Help">Usizo</string>
+    <string name="About">Mayelana</string>
+    <string name="Logout">Phuma</string>
+    <string name="Change_Language">Shintsha Ulimi</string>
+
 
 
 
