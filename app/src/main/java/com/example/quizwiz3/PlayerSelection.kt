@@ -39,7 +39,7 @@ class PlayerSelection : AppCompatActivity() {
 
         multibtn.setOnClickListener {
             // Open the Dashboard Activity
-            val intent = Intent(this, PlayerDetails::class.java)
+            val intent = Intent(this, Dashboard::class.java)
             startActivity(intent)
         }
     }
