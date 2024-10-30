@@ -57,4 +57,19 @@
         app:layout_constraintTop_toBottomOf="@+id/tvResults"
         app:layout_constraintVertical_bias="1.0" />
 
+    <Button
+        android:id="@+id/dashboardbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/lightBabyBlue"
+        android:text="@string/DashBoard"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.926" />
 </androidx.constraintlayout.widget.ConstraintLayout>
