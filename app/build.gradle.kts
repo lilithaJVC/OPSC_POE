@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.quizwiz3"
-        minSdk = 32
+        minSdk = 31
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"

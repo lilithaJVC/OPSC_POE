@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -23,6 +24,8 @@ class Results2 : AppCompatActivity() {
     private lateinit var player2ScoreBar: ProgressBar
     private lateinit var player1NameTextView: TextView
     private lateinit var player2NameTextView: TextView
+    private lateinit var dashboardbtn: Button
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,7 +70,15 @@ class Results2 : AppCompatActivity() {
 
         // Determine and display the winner
         displayWinner(player1Score, player2Score, player1Name, player2Name)
+
+        dashboardbtn = findViewById(R.id.dashboardbtn)
+        // Handle Back button to go to Dashboard
+        dashboardbtn.setOnClickListener {
+            val intent = Intent(this, PlayerSelection::class.java)
+            startActivity(intent)
+        }
     }
+
 
     /**
      * Displays the winner based on the scores.

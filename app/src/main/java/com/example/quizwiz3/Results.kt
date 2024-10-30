@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -29,6 +30,8 @@ class Results : AppCompatActivity() {
     private lateinit var QuestionsAdapter: QuestionsAdapter
     private lateinit var QuestionsAdapterTrueOrFalse: QuestionsAdapterTrueOrFalse
     private lateinit var resultTextView: TextView
+    private lateinit var dashboardbtn: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +46,13 @@ class Results : AppCompatActivity() {
 
         // Show the alert dialog when the activity starts
         showInstructionsDialog()
+
+        dashboardbtn = findViewById(R.id.dashboardbtn)
+        // Handle Back button to go to Dashboard
+        dashboardbtn.setOnClickListener {
+            val intent = Intent(this, PlayerSelection::class.java)
+            startActivity(intent)
+        }
 
         rvCategories = findViewById<RecyclerView>(R.id.rvCategories)
         resultTextView = findViewById(R.id.resultTextView)
@@ -106,6 +116,7 @@ class Results : AppCompatActivity() {
         rvCategories.layoutManager = LinearLayoutManager(this)
         rvCategories.adapter = QuestionsAdapterTrueOrFalse
     }
+
 
 
 

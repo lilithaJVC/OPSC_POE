@@ -25,11 +25,10 @@ class About : AppCompatActivity() {
 
         btnBackSettings = findViewById(R.id.btnBackSettings)
 
-
         // Back to Settings Menu Button
         btnBackSettings = findViewById(R.id.btnBackSettings)
         btnBackSettings.setOnClickListener {
-            val intent = Intent(this, Settings::class.java)
+            val intent = Intent(this, com.example.quizwiz3.Settings::class.java)
 
             startActivity(intent)
         }
