@@ -26,19 +26,19 @@
             android:id="@+id/btnProfileSettings"
             android:layout_width="385dp"
             android:layout_height="59dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="250dp"
-            android:layout_marginLeft="15dp"
             android:backgroundTint="@color/Pink"
             android:text="@string/PROFILE_SETTINGS"
             android:textSize="20dp"
-            app:cornerRadius="0dp"/>
+            app:cornerRadius="0dp" />
 
         <Button
             android:id="@+id/btnGameSettings"
             android:layout_width="385dp"
             android:layout_height="59dp"
             android:layout_marginTop="320dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="5dp"
             android:backgroundTint="@color/Pink"
             android:text="GAME SETTINGS"
             android:textSize="20dp"
@@ -48,7 +48,7 @@
             android:id="@+id/btnHelpSupport"
             android:layout_width="385dp"
             android:layout_height="59dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="5dp"
             android:backgroundTint="@color/Pink"
             android:textSize="20dp"
             android:layout_marginTop="390dp"
@@ -59,7 +59,7 @@
             android:id="@+id/btnAbout"
             android:layout_width="385dp"
             android:layout_height="59dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="5dp"
             android:backgroundTint="@color/Pink"
             android:text="@string/about2"
             android:layout_marginTop="460dp"
@@ -81,13 +81,13 @@
             android:id="@+id/btnBACK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="679dp"
             android:backgroundTint="@color/BabyBlue"
             android:text="BACK"
-            android:layout_marginLeft="300dp"
-            android:layout_marginTop="679dp"
-            android:textStyle="bold"
+            android:textColor="@color/black"
             android:textSize="16sp"
-            android:textColor="@color/black" />
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

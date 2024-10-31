@@ -14,15 +14,15 @@
         android:layout_width="399dp"
         android:layout_height="93dp"
         android:text="@string/goodluck"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198" />
+        app:layout_constraintVertical_bias="0.186" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/topAppBar"
@@ -38,8 +38,8 @@
 
     <EditText
         android:id="@+id/player1txtview"
-        android:layout_width="173dp"
-        android:layout_height="45dp"
+        android:layout_width="287dp"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:background="@color/cardview_light_background"
@@ -51,15 +51,15 @@
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
+        app:layout_constraintVertical_bias="0.446" />
 
     <EditText
         android:id="@+id/player2txtview"
-        android:layout_width="179dp"
-        android:layout_height="46dp"
+        android:layout_width="290dp"
+        android:layout_height="49dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:background="@color/cardview_light_background"
@@ -71,10 +71,10 @@
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.648" />
 
     <TextView
         android:id="@+id/palyer1"
@@ -86,10 +86,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.413" />
+        app:layout_constraintVertical_bias="0.347" />
 
     <TextView
         android:id="@+id/palter2txtview"
@@ -101,17 +100,17 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.413"
+        app:layout_constraintVertical_bias="0.546"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/startbtn"
-        android:layout_width="334dp"
-        android:layout_height="77dp"
-        android:backgroundTint="@color/Pink"
+        android:layout_width="338dp"
+        android:layout_height="64dp"
+        android:backgroundTint="@color/toolbarColor"
         android:text="@string/save_players"
         android:textColor="@color/white"
         android:textSize="19sp"
@@ -119,9 +118,9 @@
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.449"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.836" />
+        app:layout_constraintVertical_bias="0.838" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
