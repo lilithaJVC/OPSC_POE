@@ -33,7 +33,7 @@ class Results2 : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_results2)
 
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        val toolbar: Toolbar = findViewById(R.id.topAppBar)
         setSupportActionBar(toolbar)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
