@@ -7,4 +7,6 @@
     <color name="Pink">#EF4F77</color>
     <color name="lightBabyBlue">#D7ECF2</color>
     <color name="toolbarColor">#E91E63</color>
+    <color name="QuizButtonColor">#FF1493</color>
+
 </resources>

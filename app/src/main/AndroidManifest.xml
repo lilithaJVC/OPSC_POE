@@ -107,6 +107,15 @@
             android:name=".SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.QuizWiz3">
+
+            <meta-data
+                android:name="com.google.firebase.messaging.default_notification_icon"
+                android:resource="@drawable/quizwizlogo" />
+            <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+                 notification message. See README(https://goo.gl/6BKBk7) for more. -->
+            <meta-data
+                android:name="com.google.firebase.messaging.default_notification_color"
+                android:resource="@color/Pink" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -115,10 +124,11 @@
         </activity>
 
         <service
-            android:name=".MyFirebaseService"
-            android:exported="false">
+            android:name=".MyFirebaseMessagingService"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.RECEIVE">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
     </application>
