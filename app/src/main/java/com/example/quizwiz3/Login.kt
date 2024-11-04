@@ -68,7 +68,21 @@ class Login : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+//The following code was taken from Show a biometric authentication dialog
+//Author: Android Developers
+//Link: https://developer.android.com/identity/sign-in/biometric-auth
 
+//The following code was taken from Login with Biometrics on Android
+//Author: Android Developers
+//Link: https://developer.android.com/codelabs/biometric-login#1
+
+//The following code was taken from Simple Biometric Authentication in Android
+//Author: Medium
+//Link: https://yggr.medium.com/simple-biometric-authentication-in-android-b01be3c40e6f
+
+//The following code was taken from Creating an Android app with biometric authentication
+//Author: ReinTech
+//Link: https://reintech.io/blog/creating-android-app-biometric-authentication
         // Initialize Biometric Prompt
         executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(this, executor, object : BiometricPrompt.AuthenticationCallback() {
@@ -177,4 +191,9 @@ class Login : AppCompatActivity() {
             }
         }
     }
+
+    //___________end___________
+    //___________end___________
+    //___________end___________
+    //___________end___________
 }
