@@ -5,7 +5,10 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
-
+//___________code attribution___________
+//The following code was taken from Easy Tuto Room Database in Android Studio
+//Author: Easy Tuto
+//Link: https://www.youtube.com/watch?v=sWOmlDvz_3U
 @Dao
 interface TrueOrFalseDao {
 
@@ -15,3 +18,4 @@ interface TrueOrFalseDao {
     @Query("SELECT * FROM true_or_false_questions WHERE category = :category")
     suspend fun getQuestionsByCategory(category: String): List<TrueOrFalseQuestion>
 }
+//___________end___________

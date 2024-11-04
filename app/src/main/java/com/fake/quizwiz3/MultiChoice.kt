@@ -36,16 +36,13 @@ class MultiChoice : AppCompatActivity() {
     private lateinit var dashboardbtn: Button
     private lateinit var imageView2: ImageView
 
-    // New View for displaying current player
     private lateinit var playersTextView: TextView
 
-    // Original Variables
     private var questions: List<MultipleChoiceQuestion> = emptyList()
     private var stringQuestions: List<String> = emptyList()
     private var currentQuestionIndex = 0
     private var selectedAnswer: String? = null
 
-    // New Variables for Player Management
     private lateinit var player1Name: String
     private lateinit var player2Name: String
     private var isPlayer1Turn = true // To alternate turns
@@ -189,9 +186,14 @@ class MultiChoice : AppCompatActivity() {
     /**
      * Fetches multiple-choice questions based on the selected category.
      */
-    private fun fetchQuestions(category: String) {
+    private fun fetchQuestions(category: String) { //fetch questions from the roomdb
+        //___________code attribution___________
+//The following code was taken from How to get the Android Device language
+//Author: Geeks for Geeks
+//Link: https://www.geeksforgeeks.org/how-to-get-current-default-language-of-android-device-programmatically/
         val currentLocale: Locale = Locale.getDefault()
-        val languageCode: String = currentLocale.language
+        val languageCode: String = currentLocale.language //fetching the language of the device
+ //___________end___________
         var selectedLanguage = "questions"
         if (languageCode == "en") {
             selectedLanguage = "questions"
@@ -200,6 +202,10 @@ class MultiChoice : AppCompatActivity() {
         } else {
             selectedLanguage = "questions-zu"
         }
+        //___________code attribution___________
+//The following code was taken from Easy Tuto Room Database in Android Studio
+//Author: Easy Tuto
+//Link: https://www.youtube.com/watch?v=sWOmlDvz_3U
         CoroutineScope(Dispatchers.IO).launch {
             val db = Room.databaseBuilder(
                 applicationContext,
@@ -209,7 +215,7 @@ class MultiChoice : AppCompatActivity() {
 
             // Check if questions are available in the local Room DB
             val localQuestions = questionDao.getQuestionsByCategory("$category-$selectedLanguage")
-
+//___________end___________
             if (localQuestions.isNotEmpty()) {
                 // If we have questions in the local DB, display them
                 withContext(Dispatchers.Main) {
