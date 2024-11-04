@@ -7,9 +7,104 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:359932577588:android:9b2a4ed0857ecd70eac761",
+        "android_client_info": {
+          "package_name": "com.example.opscp2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "359932577588-fatrmtodaldk8a8n5kdbfijj2f95lbhj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz7DU06Kf-awoXlwtUeeBOYqJq6rmmwps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "359932577588-fatrmtodaldk8a8n5kdbfijj2f95lbhj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:359932577588:android:752bb24e7fac4fbaeac761",
         "android_client_info": {
           "package_name": "com.example.quizwiz3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "359932577588-ic668kqh2frv6607cv79e7rh1m8tb630.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.quizwiz3",
+            "certificate_hash": "14986324203d16f4a07458397b8ddd21c0340dae"
+          }
+        },
+        {
+          "client_id": "359932577588-fatrmtodaldk8a8n5kdbfijj2f95lbhj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz7DU06Kf-awoXlwtUeeBOYqJq6rmmwps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "359932577588-fatrmtodaldk8a8n5kdbfijj2f95lbhj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359932577588:android:a8fb506a1ab9783feac761",
+        "android_client_info": {
+          "package_name": "com.fake.quizwiz3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "359932577588-fatrmtodaldk8a8n5kdbfijj2f95lbhj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz7DU06Kf-awoXlwtUeeBOYqJq6rmmwps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "359932577588-fatrmtodaldk8a8n5kdbfijj2f95lbhj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359932577588:android:d8b5d2ffd6da6a04eac761",
+        "android_client_info": {
+          "package_name": "com.opsc7312.quizwizapp"
         }
       },
       "oauth_client": [
