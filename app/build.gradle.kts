@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.quizwiz3"
+    namespace = "com.fake.quizwiz3"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.quizwiz3"
+        applicationId = "com.fake.quizwiz3"
         minSdk = 31
         targetSdk = 34
         versionCode = 1
